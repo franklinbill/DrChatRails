@@ -58,6 +58,7 @@ Rails.application.routes.draw do
   resources :users do
     collection do
       get :index_json
+      patch :update
     end
   end
   resources :salaries

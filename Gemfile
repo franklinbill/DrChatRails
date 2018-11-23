@@ -15,6 +15,9 @@ gem 'paperclip'
 # for seed
 gem 'faker', '~> 1.6.3'
 
+# for UIDesign
+gem 'simple_form'
+
 # for chat room
 gem 'faye'
 gem 'thin', require: false

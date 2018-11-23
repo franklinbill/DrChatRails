@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     else
       flash={:warning => "更新失败"}
     end
-    redirect_to users_path, flash: flash
+    redirect_to root_path, flash: flash
   end
 
   def destroy
