@@ -7,7 +7,9 @@ class ChatsController < ApplicationController
   before_action :correct_user, only: :show
 
   def index
-    @friends=current_user.friends+current_user.inverse_friends
+    @friends=current_user.friends & current_user.inverse_friends
+    @newfriends=current_user.inverse_friends - current_user.friends
+    @apply=current_user.friends - current_user.inverse_friends
   end
 
   def add_user
@@ -68,7 +70,7 @@ class ChatsController < ApplicationController
   def show
     @new_message = Message.new
     @users_in_chat= @chat.users-[current_user]
-    @friends=current_user.friends+current_user.inverse_friends
+    @friends=current_user.friends & current_user.inverse_friends
     @friends_out_chat=@friends-@chat.users
   end
 

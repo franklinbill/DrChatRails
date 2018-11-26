@@ -7,6 +7,12 @@
       <li class=<%= chat_active %>>
         <a href="#chat-tab" data-toggle="tab"><i class="fa fa-weixin"></i>聊天</a>
       </li>
+      <li>
+        <a href="#newfriends-tab" data-toggle="tab"><i class="fa fa-book"></i>新朋友</a>
+      </li>
+      <li>
+        <a href="#apply-tab" data-toggle="tab"><i class="fa fa-weixin"></i>申请</a>
+      </li>
     </ul>
   </div>
   <div class="panel-body" id="tab-panel-body">
@@ -52,6 +58,54 @@
           <% end %>
         </ul>
       </div>
+
+      <div class="tab-pane fade in" id="newfriends-tab">
+        <ul class="list-group">
+          <% @newfriends.each do |user| %>
+            <li class="list-group-item" style="padding: 0px; margin-bottom: 0px;">
+
+              <button class="btn btn-default btn-block" data-toggle="collapse" data-target="#user-<%= user.id %>" id="tab-contact-default">
+                <%= image_tag "user-icon.png", class: "img-sm" %>
+                <div class="text-muted">
+                  <%= user.name %>
+                </div>
+              </button>
+
+              <div id="user-<%= user.id %>" class="collapse">
+                <%= link_to friendship_path(user), method: :post, class: 'btn btn-info btn-block', role: "button", style: "border-radius: 0" do %>
+                    <i class="fa fa-angle-right"></i> 同意
+                <% end %>
+                <%= link_to friendship_path(user), method: :delete, class: 'btn btn-danger btn-block', role: "button", style: "border-radius: 0;margin:0px;" do %>
+                    <i class="fa fa-angle-right"></i> 拒绝
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="tab-pane fade in" id="apply-tab">
+        <ul class="list-group">
+        <% @apply.each do |user| %>
+          <li class="list-group-item" style="padding: 0px; margin-bottom: 0px;">
+
+            <button class="btn btn-default btn-block" data-toggle="collapse" data-target="#user-<%= user.id %>" id="tab-contact-default">
+              <%= image_tag "user-icon.png", class: "img-sm" %>
+              <div class="text-muted">
+                <%= user.name %>
+              </div>
+            </button>
+
+            <div id="user-<%= user.id %>" class="collapse">
+              <%= link_to friendship_path(user), method: :delete, class: 'btn btn-danger btn-block', role: "button", style: "border-radius: 0;margin:0px;" do %>
+                  <i class="fa fa-angle-right"></i> 撤回
+              <% end %>
+            </div>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+
     </div>
   </div>
 
