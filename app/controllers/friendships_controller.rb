@@ -6,6 +6,11 @@ class FriendshipsController < ApplicationController
     new_friend_id = params[:friend_id]
     if !new_friend_id.nil?
       @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
+      friend=User.find_by_id(params[:friend_id])
+      if friend[:role] == 100
+        robot_relationship = friend.friendships.build(:friend_id => current_user[:id])
+        robot_relationship.save
+      end
     else
       user=User.find_by_id(params[:id])
       application=user.friendships.find_by(friend_id: current_user[:id])
