@@ -74,6 +74,16 @@ class ChatsController < ApplicationController
     @new_friends=current_user.inverse_friends - current_user.friends
     @applications=current_user.friends - current_user.inverse_friends
     @friends_out_chat=@friends-@chat.users
+
+    robot=User.find_by(role: 100)
+    @has_robot=@chat.users.include?(robot)
+    if @has_robot
+      @robot_attr=Robot.find_by_id(1);
+      # @respond_times=robot_attr[:respond_times]
+      # @avg_res_time=robot_attr[:total_time] * 100 / robot_attr[:respond_times]
+      # @solve_times=robot_attr[:solve_times]
+      # @solve_rate=@solve_times / @respond_times
+    end
   end
 
   private

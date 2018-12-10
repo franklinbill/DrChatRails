@@ -18,6 +18,15 @@
       status: Faker::Company.profession
   )
 end
+  User.create(
+    name: "Dr.Chat",
+    email: "Dr.Chat@robot.com",
+    password: 'password',
+    role: 100,
+    sex: 'Robot',
+    phonenumber: Faker::PhoneNumber.phone_number,
+    status: 'Robot'
+  )
 
 User.first.friendships.create(:friend_id => 2)
 User.first.friendships.create(:friend_id => 3)

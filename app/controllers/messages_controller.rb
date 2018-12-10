@@ -2,6 +2,8 @@ class MessagesController < ApplicationController
   include SessionsHelper
   before_action :set_message, only: [:update, :destroy]
 
+  @@err_code=[6000, 4000, 4001, 4002, 4005, 4007, 4100, 4200, 4300, 4400, 4500, 4600, 4602, 7002, 8008]
+
   def create
     @message = current_user.messages.build(message_params)
     chat=Chat.find_by_id(params[:chat_room])
@@ -24,13 +26,29 @@ class MessagesController < ApplicationController
               "userId": "franklinbill"
           }
         }.to_json
+        start_time=Time.now
         json = send_data("http://openapi.tuling123.com/openapi/api/v2", message_to_robot)
+        end_time=Time.now
+        res_time=end_time-start_time
         response = JSON.parse(json)
-        text = response["results"][0]["values"]["text"]
-        robot_message=robot.messages.build({"body" => text})
-        robot_message.chat=chat
-        if robot_message.save
-          sync_new robot_message, scope: chat
+        puts response
+        code=response["intent"]["code"]
+        if !@@err_code.include?(code)
+          text = response["results"][0]["values"]["text"]
+          robot_message=robot.messages.build({"body" => text})
+          robot_message.chat=chat
+          if robot_message.save
+            robot_attr=Robot.find_by_id(1);
+            robot_attr[:robot_id]
+            robot_attr[:response_times] += 1
+            robot_attr[:total_time] += res_time
+            if code != 5000
+              robot_attr[:solve_times] += 1
+            end
+            if robot_attr.save
+              sync_new robot_message, scope: chat
+            end
+          end
         end
       end
     else

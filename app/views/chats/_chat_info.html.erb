@@ -70,6 +70,13 @@
   </div>
 </div>
 
+<% if @has_robot %>
+    <p>总回应次数：<%= @robot_attr.response_times %></p>
+    <p>平均响应时间：<%= (@robot_attr.total_time * 100 / @robot_attr.response_times).round(2) %>ms</p>
+    <p>总解答次数：<%= @robot_attr.solve_times %></p>
+    <p>解答比率：<%= (@robot_attr.solve_times * 100.0 / @robot_attr.response_times).round(2) %>%</p>
+<% end %>
+
 <script type="text/javascript">
 
     $(".js-example-basic-multiple").select2();
