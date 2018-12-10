@@ -11708,3 +11708,1769 @@ Processing by ChatsController#index as HTML
   Rendered layouts/_header.html.erb (4.9ms)
   Rendered layouts/_content.html.erb (0.3ms)
 Completed 200 OK in 120ms (Views: 110.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-28 10:31:13 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomesController#home as HTML
+  Rendered homes/home.html.erb within layouts/application (12.7ms)
+  Rendered layouts/_login_panel.html.erb (20.6ms)
+  Rendered layouts/_header.html.erb (25.5ms)
+  Rendered layouts/_content.html.erb (1.6ms)
+Completed 200 OK in 1238ms (Views: 1216.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-10ad0916cf31256fe71785e8dc9cc297a96b1cdf7b74aeb61711199b9a3d003f.js?body=1" for 127.0.0.1 at 2018-11-28 10:31:15 +0800
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2" for 127.0.0.1 at 2018-11-28 10:31:18 +0800
+
+
+Started POST "/sessions/login" for 127.0.0.1 at 2018-11-28 10:31:38 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zs5vyojSb8fIqhK8tBk7wFvfxzTLoSMqhdCnfcOIdEzGAVvxxE+oatJiTBB33/q+lHEVn2zvYkKcUBIo/gbT+g==", "session"=>{"email"=>"user1@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "button"=>""}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "user1@test.com"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 218ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-28 10:31:38 +0800
+Processing by HomesController#home as HTML
+  Rendered homes/home.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_login_panel.html.erb (2.3ms)
+  Rendered layouts/_header.html.erb (4.8ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 183ms (Views: 181.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-28 10:32:05 +0800
+Processing by HomesController#home as HTML
+  Rendered homes/home.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_login_panel.html.erb (2.1ms)
+  Rendered layouts/_header.html.erb (4.4ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 145ms (Views: 143.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions/login" for 127.0.0.1 at 2018-11-28 10:32:41 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PI86WmCNErh9t4bsUPDzjZ5XCsWY/9OGTkxmjJi+S9U0QA5hLBDVFWd/2ECTNjLzUfnYbj+xku5XzNPZpTDsYw==", "session"=>{"email"=>"user1@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "user1@test.com"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 121ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-28 10:32:41 +0800
+Processing by HomesController#home as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered homes/home.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_login_panel.html.erb (2.3ms)
+  Rendered layouts/_header.html.erb (5.7ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 124ms (Views: 122.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-11-28 10:32:44 +0800
+Processing by ChatsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?[0m  [["friend_id", 1]]
+  [1m[35mChat Load (0.9ms)[0m  SELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?  [["user_id", 1]]
+  Rendered chats/_search_fridends.html.erb (2.5ms)
+  Rendered chats/_navside.html.erb (94.7ms)
+  Rendered chats/index.html.erb within layouts/application (99.0ms)
+  Rendered layouts/_login_panel.html.erb (3.8ms)
+  Rendered layouts/_header.html.erb (7.5ms)
+  Rendered layouts/_content.html.erb (0.4ms)
+Completed 200 OK in 423ms (Views: 264.2ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png" for 127.0.0.1 at 2018-11-28 10:32:45 +0800
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-11-28 10:32:45 +0800
+Processing by ChatsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?[0m  [["friend_id", 1]]
+  [1m[35mChat Load (0.2ms)[0m  SELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?  [["user_id", 1]]
+  Rendered chats/_search_fridends.html.erb (0.3ms)
+  Rendered chats/_navside.html.erb (14.1ms)
+  Rendered chats/index.html.erb within layouts/application (15.8ms)
+  Rendered layouts/_login_panel.html.erb (2.6ms)
+  Rendered layouts/_header.html.erb (5.8ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 174ms (Views: 161.3ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/sessions/logout" for 127.0.0.1 at 2018-11-28 10:33:16 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Me87HXq+SJ8O164VswFYNe67pFjv4KmcwWC5YGTHOnQ5IA8mNiOPMhQf8Llwx5lLIRV280iu6PTY4Aw1WUmdwg=="}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-28 10:33:16 +0800
+Processing by HomesController#home as HTML
+  Rendered homes/home.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_login_panel.html.erb (2.3ms)
+  Rendered layouts/_header.html.erb (5.0ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 137ms (Views: 135.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-28 11:34:50 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomesController#home as HTML
+  Rendered homes/home.html.erb within layouts/application (11.9ms)
+  Rendered layouts/_login_panel.html.erb (20.5ms)
+  Rendered layouts/_header.html.erb (25.1ms)
+  Rendered layouts/_content.html.erb (1.8ms)
+Completed 200 OK in 1111ms (Views: 1090.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-28 11:34:53 +0800
+Processing by HomesController#home as HTML
+  Rendered homes/home.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_login_panel.html.erb (1.9ms)
+  Rendered layouts/_header.html.erb (3.9ms)
+  Rendered layouts/_content.html.erb (0.2ms)
+Completed 200 OK in 119ms (Views: 118.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2" for 127.0.0.1 at 2018-11-28 11:34:56 +0800
+
+
+Started POST "/sessions/login" for 127.0.0.1 at 2018-11-28 11:35:06 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DexbN/ywc6Ne9Qgbb0c4fIGB8dvWrISlsdcOOW4LEpBtPnC6rJbMpYHw7+R9E5oYqdny4JcQkgNfFRHxG9jArw==", "session"=>{"email"=>"user1@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "button"=>""}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "user1@test.com"]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 217ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-28 11:35:06 +0800
+Processing by HomesController#home as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered homes/home.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_login_panel.html.erb (2.8ms)
+  Rendered layouts/_header.html.erb (6.2ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 132ms (Views: 130.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions/login" for 127.0.0.1 at 2018-11-28 11:35:12 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4CApgivBYpiiubf5X1E1LYY9ogEF6zNhDLyekZ+F+JquOuS32c1iRtSG0Pd3HAi0JRhBGWKniYomPu5M8qj5GA==", "session"=>{"email"=>"user9@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "button"=>""}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "user9@test.com"]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 119ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-28 11:35:12 +0800
+Processing by HomesController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 9]]
+  Rendered homes/home.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_login_panel.html.erb (2.4ms)
+  Rendered layouts/_header.html.erb (6.0ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 122ms (Views: 120.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-11-28 11:35:15 +0800
+Processing by ChatsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 9]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 9]]
+  [1m[36mChat Load (0.6ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 9]]
+  Rendered chats/_navside.html.erb (134.7ms)
+  Rendered chats/index.html.erb within layouts/application (139.0ms)
+Completed 500 Internal Server Error in 278ms (ActiveRecord: 3.3ms)
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    86: 
+    87:       <div class="tab-pane fade in" id="apply-tab">
+    88:         <ul class="list-group">
+    89:         <% @apply.each do |user| %>
+    90:           <li class="list-group-item" style="padding: 0px; margin-bottom: 0px;">
+    91: 
+    92:             <button class="btn btn-default btn-block" data-toggle="collapse" data-target="#user-<%= user.id %>" id="tab-contact-default">
+  app/views/chats/_navside.html.erb:89:in `_app_views_chats__navside_html_erb___4145323667855112171_47462296085100'
+  app/views/chats/index.html.erb:3:in `_app_views_chats_index_html_erb___1100551961378874139_47462295295320'
+
+
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (30.5ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.1ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (88.5ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.1ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (1495.6ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (1550.5ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-11-28 11:35:18 +0800
+Processing by ChatsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 1]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered chats/_navside.html.erb (16.7ms)
+  Rendered chats/index.html.erb within layouts/application (18.5ms)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 1.1ms)
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    86: 
+    87:       <div class="tab-pane fade in" id="apply-tab">
+    88:         <ul class="list-group">
+    89:         <% @apply.each do |user| %>
+    90:           <li class="list-group-item" style="padding: 0px; margin-bottom: 0px;">
+    91: 
+    92:             <button class="btn btn-default btn-block" data-toggle="collapse" data-target="#user-<%= user.id %>" id="tab-contact-default">
+  app/views/chats/_navside.html.erb:89:in `_app_views_chats__navside_html_erb___4145323667855112171_47462296085100'
+  app/views/chats/index.html.erb:3:in `_app_views_chats_index_html_erb___1100551961378874139_47462295295320'
+
+
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (29.9ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.5ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (81.6ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.1ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (43.5ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.4ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (87.6ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-11-28 11:35:33 +0800
+Processing by ChatsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 9]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 9]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 9]]
+  Rendered chats/_search_fridends.html.erb (1.6ms)
+  Rendered chats/_navside.html.erb (18.4ms)
+  Rendered chats/index.html.erb within layouts/application (20.3ms)
+  Rendered layouts/_login_panel.html.erb (2.9ms)
+  Rendered layouts/_header.html.erb (6.4ms)
+  Rendered layouts/_content.html.erb (0.4ms)
+Completed 200 OK in 149ms (Views: 139.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-11-28 11:35:35 +0800
+Processing by ChatsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 1]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered chats/_search_fridends.html.erb (0.3ms)
+  Rendered chats/_navside.html.erb (12.2ms)
+  Rendered chats/index.html.erb within layouts/application (13.6ms)
+  Rendered layouts/_login_panel.html.erb (2.1ms)
+  Rendered layouts/_header.html.erb (5.1ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 148ms (Views: 134.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.self-aaba9e7bb237670793f2ce0331b3196394b5ebaf65f7af03aafafff26e958351.css?body=1" for 127.0.0.1 at 2018-11-28 11:35:36 +0800
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-28 11:35:36 +0800
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-28 11:35:36 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2018-11-28 11:35:36 +0800
+
+
+Started GET "/assets/bootstrap.min.self-504d59678f10d79a661b6cecdce5b8c1d5bfd98e860614584c0a40399552d61f.js?body=1" for 127.0.0.1 at 2018-11-28 11:35:36 +0800
+
+
+Started GET "/assets/bootstrap.file-input.self-467aac2b264df4efd6b902977182473cd79513a25b2028999facfa8ab1133fec.js?body=1" for 127.0.0.1 at 2018-11-28 11:35:36 +0800
+
+
+Started GET "/assets/sync.self-570ed504e84206f050c8bc30d052d71600f341b859ea362960c1fc810fcbb46a.js?body=1" for 127.0.0.1 at 2018-11-28 11:35:36 +0800
+
+
+Started GET "/assets/select2.min.self-29080377793c2a531be0bad7d46aa3fcf1ede0008ebf68b1e4f97927f368ac38.js?body=1" for 127.0.0.1 at 2018-11-28 11:35:36 +0800
+
+
+Started GET "/assets/toastr.min.self-d1e748daa450eccf497f106231f0e799b278d085d431d75f1df5eef9968808bd.js?body=1" for 127.0.0.1 at 2018-11-28 11:35:36 +0800
+
+
+Started GET "/assets/application.self-10ad0916cf31256fe71785e8dc9cc297a96b1cdf7b74aeb61711199b9a3d003f.js?body=1" for 127.0.0.1 at 2018-11-28 11:35:36 +0800
+
+
+Started GET "/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png" for 127.0.0.1 at 2018-11-28 11:35:36 +0800
+
+
+Started DELETE "/friendships/1" for 127.0.0.1 at 2018-11-28 11:35:44 +0800
+Processing by FriendshipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"rgGOwKiHjNmrDcHD1hFDRSRzPMRLw6k1dl42oiTGo9LgG0P1WouMB90yps3+XH7ch1bf3CyPE95c3EZ/SeuiUA==", "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mFriendship Load (0.5ms)[0m  [1mSELECT  "friendships".* FROM "friendships" WHERE "friendships"."user_id" = ? AND "friendships"."friend_id" = ? LIMIT 1[0m  [["user_id", 9], ["friend_id", 1]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "friendships" WHERE "friendships"."id" = ?[0m  [["id", 47]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mChat Load (0.2ms)[0m  SELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?  [["user_id", 9]]
+  [1m[36mFriendship Load (0.2ms)[0m  [1mSELECT  "friendships".* FROM "friendships" WHERE "friendships"."user_id" = ? AND "friendships"."friend_id" = ? LIMIT 1[0m  [["user_id", 1], ["friend_id", 9]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "friendships" WHERE "friendships"."id" = ?[0m  [["id", 48]]
+  [1m[35m (3.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/chats
+Completed 302 Found in 49ms (ActiveRecord: 11.0ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-11-28 11:35:44 +0800
+Processing by ChatsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?  [["user_id", 9]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?[0m  [["friend_id", 9]]
+  [1m[35mChat Load (0.3ms)[0m  SELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?  [["user_id", 9]]
+  Rendered chats/_search_fridends.html.erb (0.5ms)
+  Rendered chats/_navside.html.erb (6.0ms)
+  Rendered chats/index.html.erb within layouts/application (7.4ms)
+  Rendered layouts/_login_panel.html.erb (2.6ms)
+  Rendered layouts/_header.html.erb (6.3ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 137ms (Views: 127.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-11-28 11:35:49 +0800
+Processing by ChatsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?[0m  [["friend_id", 1]]
+  [1m[35mChat Load (0.2ms)[0m  SELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?  [["user_id", 1]]
+  Rendered chats/_search_fridends.html.erb (0.5ms)
+  Rendered chats/_navside.html.erb (9.5ms)
+  Rendered chats/index.html.erb within layouts/application (11.5ms)
+  Rendered layouts/_login_panel.html.erb (2.5ms)
+  Rendered layouts/_header.html.erb (6.7ms)
+  Rendered layouts/_content.html.erb (0.2ms)
+Completed 200 OK in 160ms (Views: 144.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.self-aaba9e7bb237670793f2ce0331b3196394b5ebaf65f7af03aafafff26e958351.css?body=1" for 127.0.0.1 at 2018-11-28 11:35:49 +0800
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-28 11:35:49 +0800
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-28 11:35:49 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2018-11-28 11:35:49 +0800
+
+
+Started GET "/assets/bootstrap.min.self-504d59678f10d79a661b6cecdce5b8c1d5bfd98e860614584c0a40399552d61f.js?body=1" for 127.0.0.1 at 2018-11-28 11:35:49 +0800
+
+
+Started GET "/assets/bootstrap.file-input.self-467aac2b264df4efd6b902977182473cd79513a25b2028999facfa8ab1133fec.js?body=1" for 127.0.0.1 at 2018-11-28 11:35:49 +0800
+
+
+Started GET "/assets/sync.self-570ed504e84206f050c8bc30d052d71600f341b859ea362960c1fc810fcbb46a.js?body=1" for 127.0.0.1 at 2018-11-28 11:35:49 +0800
+
+
+Started GET "/assets/select2.min.self-29080377793c2a531be0bad7d46aa3fcf1ede0008ebf68b1e4f97927f368ac38.js?body=1" for 127.0.0.1 at 2018-11-28 11:35:49 +0800
+
+
+Started GET "/assets/toastr.min.self-d1e748daa450eccf497f106231f0e799b278d085d431d75f1df5eef9968808bd.js?body=1" for 127.0.0.1 at 2018-11-28 11:35:49 +0800
+
+
+Started GET "/assets/application.self-10ad0916cf31256fe71785e8dc9cc297a96b1cdf7b74aeb61711199b9a3d003f.js?body=1" for 127.0.0.1 at 2018-11-28 11:35:49 +0800
+
+
+Started GET "/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png" for 127.0.0.1 at 2018-11-28 11:35:49 +0800
+
+
+Started GET "/users/index_json?query=user1" for 127.0.0.1 at 2018-11-28 11:36:02 +0800
+Processing by UsersController#index_json as JSON
+  Parameters: {"query"=>"user1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" != 9) AND ("users"."id" NOT IN (SELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE ("users"."id" != 9) AND "friendships"."user_id" = ?)) AND (users.name LIKE '%user1%')  [["user_id", 9]]
+Completed 200 OK in 28ms (Views: 7.0ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/friendships?friend_id=1" for 127.0.0.1 at 2018-11-28 11:36:04 +0800
+Processing by FriendshipsController#create as HTML
+  Parameters: {"authenticity_token"=>"CG7J/tP6Mef8/7sBP35t31x9c+GfnhrSodlbjBZSCrpGdATLIfYxOYrA3A8XM1BG/1iQ+fjSoDmLWytRe38LOA==", "friend_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "friendships" ("friend_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["friend_id", 1], ["user_id", 9], ["created_at", "2018-11-28 03:36:04.091509"], ["updated_at", "2018-11-28 03:36:04.091509"]]
+  [1m[35m (3.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/chats
+Completed 302 Found in 23ms (ActiveRecord: 5.3ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-11-28 11:36:04 +0800
+Processing by ChatsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?  [["user_id", 9]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?[0m  [["friend_id", 9]]
+  [1m[35mChat Load (0.3ms)[0m  SELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?  [["user_id", 9]]
+  Rendered chats/_search_fridends.html.erb (0.3ms)
+  Rendered chats/_navside.html.erb (8.8ms)
+  Rendered chats/index.html.erb within layouts/application (10.5ms)
+  Rendered layouts/_login_panel.html.erb (2.4ms)
+  Rendered layouts/_header.html.erb (5.4ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 136ms (Views: 126.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-11-28 11:36:09 +0800
+Processing by ChatsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?[0m  [["friend_id", 1]]
+  [1m[35mChat Load (0.2ms)[0m  SELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?  [["user_id", 1]]
+  Rendered chats/_search_fridends.html.erb (0.5ms)
+  Rendered chats/_navside.html.erb (12.0ms)
+  Rendered chats/index.html.erb within layouts/application (13.9ms)
+  Rendered layouts/_login_panel.html.erb (2.1ms)
+  Rendered layouts/_header.html.erb (5.8ms)
+  Rendered layouts/_content.html.erb (0.2ms)
+Completed 200 OK in 138ms (Views: 125.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.self-aaba9e7bb237670793f2ce0331b3196394b5ebaf65f7af03aafafff26e958351.css?body=1" for 127.0.0.1 at 2018-11-28 11:36:09 +0800
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-28 11:36:09 +0800
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-28 11:36:09 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2018-11-28 11:36:09 +0800
+
+
+Started GET "/assets/bootstrap.min.self-504d59678f10d79a661b6cecdce5b8c1d5bfd98e860614584c0a40399552d61f.js?body=1" for 127.0.0.1 at 2018-11-28 11:36:09 +0800
+
+
+Started GET "/assets/bootstrap.file-input.self-467aac2b264df4efd6b902977182473cd79513a25b2028999facfa8ab1133fec.js?body=1" for 127.0.0.1 at 2018-11-28 11:36:09 +0800
+
+
+Started GET "/assets/sync.self-570ed504e84206f050c8bc30d052d71600f341b859ea362960c1fc810fcbb46a.js?body=1" for 127.0.0.1 at 2018-11-28 11:36:09 +0800
+
+
+Started GET "/assets/select2.min.self-29080377793c2a531be0bad7d46aa3fcf1ede0008ebf68b1e4f97927f368ac38.js?body=1" for 127.0.0.1 at 2018-11-28 11:36:09 +0800
+
+
+Started GET "/assets/toastr.min.self-d1e748daa450eccf497f106231f0e799b278d085d431d75f1df5eef9968808bd.js?body=1" for 127.0.0.1 at 2018-11-28 11:36:09 +0800
+
+
+Started GET "/assets/application.self-10ad0916cf31256fe71785e8dc9cc297a96b1cdf7b74aeb61711199b9a3d003f.js?body=1" for 127.0.0.1 at 2018-11-28 11:36:09 +0800
+
+
+Started GET "/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png" for 127.0.0.1 at 2018-11-28 11:36:09 +0800
+
+
+Started POST "/friendships/9" for 127.0.0.1 at 2018-11-28 11:36:19 +0800
+Processing by FriendshipsController#create as HTML
+  Parameters: {"authenticity_token"=>"XD1XDVfPPUxRd01RQ+6fVrYp+TX0UWELBN9c4IRZLL4873yAB+mCSo5yqq5Ruj0ynnH6DrXtd63qHUMo8Yr+gQ==", "id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mFriendship Load (0.3ms)[0m  [1mSELECT  "friendships".* FROM "friendships" WHERE "friendships"."user_id" = ? AND "friendships"."friend_id" = ? LIMIT 1[0m  [["user_id", 9], ["friend_id", 1]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "friendships" ("friend_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["friend_id", 9], ["user_id", 1], ["created_at", "2018-11-28 03:36:19.910494"], ["updated_at", "2018-11-28 03:36:19.910494"]]
+  [1m[35m (4.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/chats
+Completed 302 Found in 18ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-11-28 11:36:19 +0800
+Processing by ChatsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?[0m  [["friend_id", 1]]
+  [1m[35mChat Load (0.2ms)[0m  SELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?  [["user_id", 1]]
+  Rendered chats/_search_fridends.html.erb (0.2ms)
+  Rendered chats/_navside.html.erb (12.1ms)
+  Rendered chats/index.html.erb within layouts/application (13.4ms)
+  Rendered layouts/_login_panel.html.erb (2.1ms)
+  Rendered layouts/_header.html.erb (5.1ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 126ms (Views: 116.0ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/friendships/9" for 127.0.0.1 at 2018-11-28 11:36:22 +0800
+Processing by FriendshipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"GOym/6RgYJ+MzOS3/HaXyOoYvJkTuqCSQ3VwgSF2c7J4Po1y9EbfmVPJA0juIjWswkC/olIGtjStt29JVKWhjQ==", "id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mFriendship Load (0.3ms)[0m  SELECT  "friendships".* FROM "friendships" WHERE "friendships"."user_id" = ? AND "friendships"."friend_id" = ? LIMIT 1  [["user_id", 1], ["friend_id", 9]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "friendships" WHERE "friendships"."id" = ?  [["id", 51]]
+  [1m[36m (4.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mFriendship Load (0.3ms)[0m  SELECT  "friendships".* FROM "friendships" WHERE "friendships"."user_id" = ? AND "friendships"."friend_id" = ? LIMIT 1  [["user_id", 9], ["friend_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "friendships" WHERE "friendships"."id" = ?  [["id", 50]]
+  [1m[36m (3.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/chats
+Completed 302 Found in 27ms (ActiveRecord: 10.1ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-11-28 11:36:22 +0800
+Processing by ChatsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 1]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered chats/_search_fridends.html.erb (0.2ms)
+  Rendered chats/_navside.html.erb (8.5ms)
+  Rendered chats/index.html.erb within layouts/application (10.1ms)
+  Rendered layouts/_login_panel.html.erb (2.4ms)
+  Rendered layouts/_header.html.erb (5.9ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 153ms (Views: 143.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/index_json?query=user9" for 127.0.0.1 at 2018-11-28 11:36:29 +0800
+Processing by UsersController#index_json as JSON
+  Parameters: {"query"=>"user9"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" != 1) AND ("users"."id" NOT IN (SELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE ("users"."id" != 1) AND "friendships"."user_id" = ?)) AND (users.name LIKE '%user9%')[0m  [["user_id", 1]]
+Completed 200 OK in 21ms (Views: 6.4ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/friendships?friend_id=9" for 127.0.0.1 at 2018-11-28 11:36:32 +0800
+Processing by FriendshipsController#create as HTML
+  Parameters: {"authenticity_token"=>"EMSNX8NbEN8FsVBlacH7+IBJSa6+LOW26EMM/P634GlwFqbSk32v2dq0t5p7lVmcqBFKlf+Q8xAGgRM0i2QyVg==", "friend_id"=>"9"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friendships" ("friend_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["friend_id", 9], ["user_id", 1], ["created_at", "2018-11-28 03:36:32.097201"], ["updated_at", "2018-11-28 03:36:32.097201"]]
+  [1m[36m (3.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/chats
+Completed 302 Found in 15ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-11-28 11:36:32 +0800
+Processing by ChatsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 1]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered chats/_search_fridends.html.erb (0.3ms)
+  Rendered chats/_navside.html.erb (11.1ms)
+  Rendered chats/index.html.erb within layouts/application (12.7ms)
+  Rendered layouts/_login_panel.html.erb (2.5ms)
+  Rendered layouts/_header.html.erb (5.9ms)
+  Rendered layouts/_content.html.erb (0.4ms)
+Completed 200 OK in 157ms (Views: 145.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-11-28 11:36:35 +0800
+Processing by ChatsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 9]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 9]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 9]]
+  Rendered chats/_search_fridends.html.erb (0.4ms)
+  Rendered chats/_navside.html.erb (11.1ms)
+  Rendered chats/index.html.erb within layouts/application (12.8ms)
+  Rendered layouts/_login_panel.html.erb (2.8ms)
+  Rendered layouts/_header.html.erb (6.6ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 151ms (Views: 138.4ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/friendships/1" for 127.0.0.1 at 2018-11-28 11:36:38 +0800
+Processing by FriendshipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"N6ysADrNm2SJ3K2fZhvSb31VZaLW/bXEQQX0auXmZwJ5tmE1yMGbuv/jypFOVu/23nCGurGxDy9rh4S3iMtmgA==", "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mFriendship Load (0.3ms)[0m  [1mSELECT  "friendships".* FROM "friendships" WHERE "friendships"."user_id" = ? AND "friendships"."friend_id" = ? LIMIT 1[0m  [["user_id", 9], ["friend_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 9]]
+  [1m[35mFriendship Load (0.3ms)[0m  SELECT  "friendships".* FROM "friendships" WHERE "friendships"."user_id" = ? AND "friendships"."friend_id" = ? LIMIT 1  [["user_id", 1], ["friend_id", 9]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "friendships" WHERE "friendships"."id" = ?  [["id", 52]]
+  [1m[36m (4.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/chats
+Completed 302 Found in 21ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-11-28 11:36:38 +0800
+Processing by ChatsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 9]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 9]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 9]]
+  Rendered chats/_search_fridends.html.erb (0.3ms)
+  Rendered chats/_navside.html.erb (5.1ms)
+  Rendered chats/index.html.erb within layouts/application (6.5ms)
+  Rendered layouts/_login_panel.html.erb (2.0ms)
+  Rendered layouts/_header.html.erb (5.1ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 131ms (Views: 121.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-11-28 11:36:50 +0800
+Processing by ChatsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 1]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered chats/_search_fridends.html.erb (0.2ms)
+  Rendered chats/_navside.html.erb (8.7ms)
+  Rendered chats/index.html.erb within layouts/application (10.5ms)
+  Rendered layouts/_login_panel.html.erb (2.3ms)
+  Rendered layouts/_header.html.erb (5.4ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 137ms (Views: 126.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.self-aaba9e7bb237670793f2ce0331b3196394b5ebaf65f7af03aafafff26e958351.css?body=1" for 127.0.0.1 at 2018-11-28 11:36:50 +0800
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-28 11:36:50 +0800
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-28 11:36:50 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2018-11-28 11:36:50 +0800
+
+
+Started GET "/assets/bootstrap.min.self-504d59678f10d79a661b6cecdce5b8c1d5bfd98e860614584c0a40399552d61f.js?body=1" for 127.0.0.1 at 2018-11-28 11:36:50 +0800
+
+
+Started GET "/assets/bootstrap.file-input.self-467aac2b264df4efd6b902977182473cd79513a25b2028999facfa8ab1133fec.js?body=1" for 127.0.0.1 at 2018-11-28 11:36:50 +0800
+
+
+Started GET "/assets/sync.self-570ed504e84206f050c8bc30d052d71600f341b859ea362960c1fc810fcbb46a.js?body=1" for 127.0.0.1 at 2018-11-28 11:36:50 +0800
+
+
+Started GET "/assets/select2.min.self-29080377793c2a531be0bad7d46aa3fcf1ede0008ebf68b1e4f97927f368ac38.js?body=1" for 127.0.0.1 at 2018-11-28 11:36:50 +0800
+
+
+Started GET "/assets/toastr.min.self-d1e748daa450eccf497f106231f0e799b278d085d431d75f1df5eef9968808bd.js?body=1" for 127.0.0.1 at 2018-11-28 11:36:50 +0800
+
+
+Started GET "/assets/application.self-10ad0916cf31256fe71785e8dc9cc297a96b1cdf7b74aeb61711199b9a3d003f.js?body=1" for 127.0.0.1 at 2018-11-28 11:36:50 +0800
+
+
+Started GET "/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png" for 127.0.0.1 at 2018-11-28 11:36:51 +0800
+
+
+Started GET "/users/index_json?query=user1" for 127.0.0.1 at 2018-11-28 11:37:03 +0800
+Processing by UsersController#index_json as JSON
+  Parameters: {"query"=>"user1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" != 9) AND ("users"."id" NOT IN (SELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE ("users"."id" != 9) AND "friendships"."user_id" = ?)) AND (users.name LIKE '%user1%')[0m  [["user_id", 9]]
+Completed 200 OK in 25ms (Views: 6.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/index_json?query=user1" for 127.0.0.1 at 2018-11-28 11:37:03 +0800
+Processing by UsersController#index_json as JSON
+  Parameters: {"query"=>"user1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" != 9) AND ("users"."id" NOT IN (SELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE ("users"."id" != 9) AND "friendships"."user_id" = ?)) AND (users.name LIKE '%user1%')[0m  [["user_id", 9]]
+Completed 200 OK in 22ms (Views: 7.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/friendships?friend_id=1" for 127.0.0.1 at 2018-11-28 11:37:05 +0800
+Processing by FriendshipsController#create as HTML
+  Parameters: {"authenticity_token"=>"MQL/JZHxL58SKIbh2BfQNK2Qf3aSSgCXbmsPQ0sC/oh/GDIQY/0vQWQX4e/wWu2tDrWcbvUGunxE6X+eJi//Cg==", "friend_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "friendships" ("friend_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["friend_id", 1], ["user_id", 9], ["created_at", "2018-11-28 03:37:05.723592"], ["updated_at", "2018-11-28 03:37:05.723592"]]
+  [1m[36m (4.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/chats
+Completed 302 Found in 17ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-11-28 11:37:05 +0800
+Processing by ChatsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 9]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 9]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 9]]
+  Rendered chats/_search_fridends.html.erb (0.3ms)
+  Rendered chats/_navside.html.erb (8.1ms)
+  Rendered chats/index.html.erb within layouts/application (9.6ms)
+  Rendered layouts/_login_panel.html.erb (1.9ms)
+  Rendered layouts/_header.html.erb (4.8ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 136ms (Views: 126.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-11-28 11:37:10 +0800
+Processing by ChatsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 1]]
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered chats/_search_fridends.html.erb (0.3ms)
+  Rendered chats/_navside.html.erb (12.7ms)
+  Rendered chats/index.html.erb within layouts/application (14.6ms)
+  Rendered layouts/_login_panel.html.erb (2.2ms)
+  Rendered layouts/_header.html.erb (6.0ms)
+  Rendered layouts/_content.html.erb (0.2ms)
+Completed 200 OK in 153ms (Views: 139.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.self-aaba9e7bb237670793f2ce0331b3196394b5ebaf65f7af03aafafff26e958351.css?body=1" for 127.0.0.1 at 2018-11-28 11:37:10 +0800
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-28 11:37:10 +0800
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-28 11:37:10 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2018-11-28 11:37:10 +0800
+
+
+Started GET "/assets/bootstrap.min.self-504d59678f10d79a661b6cecdce5b8c1d5bfd98e860614584c0a40399552d61f.js?body=1" for 127.0.0.1 at 2018-11-28 11:37:10 +0800
+
+
+Started GET "/assets/bootstrap.file-input.self-467aac2b264df4efd6b902977182473cd79513a25b2028999facfa8ab1133fec.js?body=1" for 127.0.0.1 at 2018-11-28 11:37:10 +0800
+
+
+Started GET "/assets/sync.self-570ed504e84206f050c8bc30d052d71600f341b859ea362960c1fc810fcbb46a.js?body=1" for 127.0.0.1 at 2018-11-28 11:37:10 +0800
+
+
+Started GET "/assets/select2.min.self-29080377793c2a531be0bad7d46aa3fcf1ede0008ebf68b1e4f97927f368ac38.js?body=1" for 127.0.0.1 at 2018-11-28 11:37:10 +0800
+
+
+Started GET "/assets/toastr.min.self-d1e748daa450eccf497f106231f0e799b278d085d431d75f1df5eef9968808bd.js?body=1" for 127.0.0.1 at 2018-11-28 11:37:10 +0800
+
+
+Started GET "/assets/application.self-10ad0916cf31256fe71785e8dc9cc297a96b1cdf7b74aeb61711199b9a3d003f.js?body=1" for 127.0.0.1 at 2018-11-28 11:37:10 +0800
+
+
+Started GET "/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png" for 127.0.0.1 at 2018-11-28 11:37:10 +0800
+
+
+Started POST "/friendships/9" for 127.0.0.1 at 2018-11-28 11:37:17 +0800
+Processing by FriendshipsController#create as HTML
+  Parameters: {"authenticity_token"=>"jInWUT8Gzo6fj1044BSx/Wopzeed8l8wKreq51bupK3sW/3cbyBxiECKusfyQBOZQnHO3NxOSZbEdbUvIz12kg==", "id"=>"9"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mFriendship Load (0.2ms)[0m  SELECT  "friendships".* FROM "friendships" WHERE "friendships"."user_id" = ? AND "friendships"."friend_id" = ? LIMIT 1  [["user_id", 9], ["friend_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friendships" ("friend_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["friend_id", 9], ["user_id", 1], ["created_at", "2018-11-28 03:37:17.456304"], ["updated_at", "2018-11-28 03:37:17.456304"]]
+  [1m[36m (11.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/chats
+Completed 302 Found in 24ms (ActiveRecord: 12.4ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-11-28 11:37:17 +0800
+Processing by ChatsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 1]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered chats/_search_fridends.html.erb (0.3ms)
+  Rendered chats/_navside.html.erb (11.9ms)
+  Rendered chats/index.html.erb within layouts/application (13.8ms)
+  Rendered layouts/_login_panel.html.erb (1.8ms)
+  Rendered layouts/_header.html.erb (4.5ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 127ms (Views: 117.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-11-28 11:37:25 +0800
+Processing by ChatsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 9]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 9]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 9]]
+  Rendered chats/_search_fridends.html.erb (0.3ms)
+  Rendered chats/_navside.html.erb (10.3ms)
+  Rendered chats/index.html.erb within layouts/application (11.8ms)
+  Rendered layouts/_login_panel.html.erb (2.4ms)
+  Rendered layouts/_header.html.erb (5.5ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 131ms (Views: 117.4ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/friendships/9" for 127.0.0.1 at 2018-11-28 11:37:33 +0800
+Processing by FriendshipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"gZOEZZW/8JPjSHbUjfPMu4QvpgHa88nzJhf3RqDHbYfhQa/oxZlPlTxNkSufp27frHelOptP31XI1eiO1RS/uA==", "id"=>"9"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mFriendship Load (0.2ms)[0m  [1mSELECT  "friendships".* FROM "friendships" WHERE "friendships"."user_id" = ? AND "friendships"."friend_id" = ? LIMIT 1[0m  [["user_id", 1], ["friend_id", 9]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "friendships" WHERE "friendships"."id" = ?[0m  [["id", 54]]
+  [1m[35m (3.7ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mChat Load (0.2ms)[0m  SELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?  [["user_id", 1]]
+  [1m[36mFriendship Load (0.2ms)[0m  [1mSELECT  "friendships".* FROM "friendships" WHERE "friendships"."user_id" = ? AND "friendships"."friend_id" = ? LIMIT 1[0m  [["user_id", 9], ["friend_id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "friendships" WHERE "friendships"."id" = ?[0m  [["id", 53]]
+  [1m[35m (3.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/chats
+Completed 302 Found in 25ms (ActiveRecord: 9.5ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-11-28 11:37:33 +0800
+Processing by ChatsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?[0m  [["friend_id", 1]]
+  [1m[35mChat Load (0.2ms)[0m  SELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?  [["user_id", 1]]
+  Rendered chats/_search_fridends.html.erb (0.2ms)
+  Rendered chats/_navside.html.erb (8.0ms)
+  Rendered chats/index.html.erb within layouts/application (9.7ms)
+  Rendered layouts/_login_panel.html.erb (1.9ms)
+  Rendered layouts/_header.html.erb (4.7ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 142ms (Views: 133.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-10 20:44:10 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomesController#home as HTML
+  Rendered homes/home.html.erb within layouts/application (12.1ms)
+  Rendered layouts/_login_panel.html.erb (17.3ms)
+  Rendered layouts/_header.html.erb (21.4ms)
+  Rendered layouts/_content.html.erb (1.7ms)
+Completed 200 OK in 988ms (Views: 970.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2" for 127.0.0.1 at 2018-12-10 20:44:21 +0800
+
+
+Started POST "/sessions/login" for 127.0.0.1 at 2018-12-10 20:44:27 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oXV3XPxm+nbhoev7bYsprZKzDTYfwABHRUXr/mDphAsWGuFGFL6Pv7bIbzxs0NGzeRUBdNzmjoD54PBakWrnUQ==", "session"=>{"email"=>"HHH@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "button"=>""}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "hhh@test.com"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 76ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-10 20:44:28 +0800
+Processing by HomesController#home as HTML
+  Rendered homes/home.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_login_panel.html.erb (1.8ms)
+  Rendered layouts/_header.html.erb (3.7ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 104ms (Views: 102.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions/login" for 127.0.0.1 at 2018-12-10 20:44:31 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UQMCTrRATphWehNBJqnxL9P1df6Lyg5TRO9DqIbUZZfmbJRUXJg7UQETl4Yn8gkxOFN5vEjsgJT4SlgMd1cGzQ==", "session"=>{"email"=>"user2@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "user2@test.com"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-10 20:44:32 +0800
+Processing by HomesController#home as HTML
+  Rendered homes/home.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_login_panel.html.erb (2.1ms)
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 174ms (Views: 172.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions/login" for 127.0.0.1 at 2018-12-10 20:44:45 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qv2Ur3vvQuCDMJtKlC+4JZgrlrp3fIkQ7tCj3EZaERwdkgK1kzc3KdRZH42VdEA7c42a+LRaB9dSdbh4t9lyRg==", "session"=>{"email"=>"user1@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "button"=>""}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "user1@test.com"]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 132ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-10 20:44:45 +0800
+Processing by HomesController#home as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered homes/home.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_login_panel.html.erb (2.2ms)
+  Rendered layouts/_header.html.erb (5.3ms)
+  Rendered layouts/_content.html.erb (0.2ms)
+Completed 200 OK in 107ms (Views: 105.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-12-10 20:44:47 +0800
+Processing by ChatsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 1]]
+  [1m[36mChat Load (0.5ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered chats/_search_fridends.html.erb (2.3ms)
+  Rendered chats/_navside.html.erb (88.2ms)
+  Rendered chats/index.html.erb within layouts/application (91.7ms)
+  Rendered layouts/_login_panel.html.erb (2.8ms)
+  Rendered layouts/_header.html.erb (6.5ms)
+  Rendered layouts/_content.html.erb (0.4ms)
+Completed 200 OK in 368ms (Views: 256.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-10 20:45:04 +0800
+Processing by HomesController#home as HTML
+  Rendered homes/home.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_login_panel.html.erb (3.4ms)
+  Rendered layouts/_header.html.erb (6.8ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 140ms (Views: 139.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions/login" for 127.0.0.1 at 2018-12-10 20:45:08 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qu6WxjzuYM8L4sbFtL84UCYGTQpGqNRwSnjo2ysf8hLc6qWiqANln6+2DpMC9jycVDpNs+DTY8pp4d5jq5MYFQ==", "session"=>{"email"=>"user9@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "button"=>""}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "user9@test.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 102ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-10 20:45:08 +0800
+Processing by HomesController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 9]]
+  Rendered homes/home.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_login_panel.html.erb (2.6ms)
+  Rendered layouts/_header.html.erb (5.7ms)
+  Rendered layouts/_content.html.erb (0.7ms)
+Completed 200 OK in 125ms (Views: 123.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/index_json?query=user9" for 127.0.0.1 at 2018-12-10 20:45:14 +0800
+Processing by UsersController#index_json as JSON
+  Parameters: {"query"=>"user9"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" != 1) AND ("users"."id" NOT IN (SELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE ("users"."id" != 1) AND "friendships"."user_id" = ?)) AND (users.name LIKE '%user9%')[0m  [["user_id", 1]]
+Completed 200 OK in 25ms (Views: 6.4ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/friendships?friend_id=9" for 127.0.0.1 at 2018-12-10 20:45:15 +0800
+Processing by FriendshipsController#create as HTML
+  Parameters: {"authenticity_token"=>"FNjVf24g2G7DxlhjW0QE0FL6PlT8Cu4EdUmkEoLspwGjt0Nlhvitp5Sv3KRaH/zOuVwyFj8sYMPJ7L+2c2/EWw==", "friend_id"=>"9"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "friendships" ("friend_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["friend_id", 9], ["user_id", 1], ["created_at", "2018-12-10 12:45:15.806086"], ["updated_at", "2018-12-10 12:45:15.806086"]]
+  [1m[36m (3.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/chats
+Completed 302 Found in 37ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-12-10 20:45:15 +0800
+Processing by ChatsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 1]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered chats/_search_fridends.html.erb (0.2ms)
+  Rendered chats/_navside.html.erb (9.9ms)
+  Rendered chats/index.html.erb within layouts/application (11.2ms)
+  Rendered layouts/_login_panel.html.erb (1.7ms)
+  Rendered layouts/_header.html.erb (4.5ms)
+  Rendered layouts/_content.html.erb (0.2ms)
+Completed 200 OK in 113ms (Views: 102.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-12-10 20:45:20 +0800
+Processing by ChatsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 9]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 9]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 9]]
+  Rendered chats/_search_fridends.html.erb (0.3ms)
+  Rendered chats/_navside.html.erb (9.4ms)
+  Rendered chats/index.html.erb within layouts/application (10.9ms)
+  Rendered layouts/_login_panel.html.erb (1.8ms)
+  Rendered layouts/_header.html.erb (5.0ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 129ms (Views: 116.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/friendships/1" for 127.0.0.1 at 2018-12-10 20:45:23 +0800
+Processing by FriendshipsController#create as HTML
+  Parameters: {"authenticity_token"=>"5v/hkSSSLs0InSJTj0TOa7QeR135Pupx9LhtTkETY9R4+9L1sH8rnazJ6gU5DcqnxiJH5F9FXcvXIVv2wZ+J0w==", "id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mFriendship Load (0.5ms)[0m  SELECT  "friendships".* FROM "friendships" WHERE "friendships"."user_id" = ? AND "friendships"."friend_id" = ? LIMIT 1  [["user_id", 1], ["friend_id", 9]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friendships" ("friend_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["friend_id", 1], ["user_id", 9], ["created_at", "2018-12-10 12:45:23.936008"], ["updated_at", "2018-12-10 12:45:23.936008"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/chats
+Completed 302 Found in 20ms (ActiveRecord: 5.7ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-12-10 20:45:23 +0800
+Processing by ChatsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 9]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 9]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 9]]
+  Rendered chats/_search_fridends.html.erb (0.3ms)
+  Rendered chats/_navside.html.erb (18.1ms)
+  Rendered chats/index.html.erb within layouts/application (19.3ms)
+  Rendered layouts/_login_panel.html.erb (1.6ms)
+  Rendered layouts/_header.html.erb (4.0ms)
+  Rendered layouts/_content.html.erb (0.2ms)
+Completed 200 OK in 123ms (Views: 112.4ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/chats" for 127.0.0.1 at 2018-12-10 20:45:26 +0800
+Processing by ChatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZaWDIw7cFF9v2xIG+X+ctFzb7PB3gye6QyKbGqqMeIv7obBHmjERD8uP2lBPNph4LufsSdH4kABgu62iKgCSjA==", "users"=>"1", "button"=>""}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mChat Load (0.2ms)[0m  SELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?  [["user_id", 9]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('user1@test.com') AND "users"."id" != 1) LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('user9@test.com') AND "users"."id" != 9) LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "chats" ("admin_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["admin_id", 9], ["name", "user1-user9"], ["created_at", "2018-12-10 12:45:26.792727"], ["updated_at", "2018-12-10 12:45:26.792727"]]
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "chats_users" ("user_id", "chat_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["chat_id", 3], ["created_at", "2018-12-10 12:45:26.797590"], ["updated_at", "2018-12-10 12:45:26.797590"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "chats_users" ("user_id", "chat_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["user_id", 9], ["chat_id", 3], ["created_at", "2018-12-10 12:45:26.801334"], ["updated_at", "2018-12-10 12:45:26.801334"]]
+  [1m[36m (3.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/chats/3
+Completed 302 Found in 78ms (ActiveRecord: 7.6ms)
+
+
+Started GET "/chats/3" for 127.0.0.1 at 2018-12-10 20:45:26 +0800
+Processing by ChatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mChat Load (0.5ms)[0m  [1mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ? AND "users"."id" = ? LIMIT 1  [["chat_id", 3], ["id", 9]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ?[0m  [["chat_id", 3]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?  [["user_id", 9]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?[0m  [["friend_id", 9]]
+  [1m[35mChat Load (0.2ms)[0m  SELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?  [["user_id", 9]]
+  Rendered chats/_navside.html.erb (25.3ms)
+  Rendered chats/show.html.erb within layouts/application (30.8ms)
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 3.4ms)
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    61: 
+    62:       <div class="tab-pane fade in" id="newfriends-tab">
+    63:         <ul class="list-group">
+    64:           <% @new_friends.each do |user| %>
+    65:             <li class="list-group-item" style="padding: 0px; margin-bottom: 0px;">
+    66: 
+    67:               <button class="btn btn-default btn-block" data-toggle="collapse" data-target="#user-<%= user.id %>" id="tab-contact-default">
+  app/views/chats/_navside.html.erb:64:in `_app_views_chats__navside_html_erb__1943748571788261794_47184689423900'
+  app/views/chats/show.html.erb:3:in `_app_views_chats_show_html_erb___2721572619119425806_47184701165480'
+
+
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (29.1ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (13.4ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.6ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (87.6ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.6ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (1511.7ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.3ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (1565.5ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-12-10 20:45:43 +0800
+Processing by ChatsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?[0m  [["friend_id", 1]]
+  [1m[35mChat Load (0.3ms)[0m  SELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?  [["user_id", 1]]
+  Rendered chats/_search_fridends.html.erb (0.3ms)
+  Rendered chats/_navside.html.erb (14.6ms)
+  Rendered chats/index.html.erb within layouts/application (16.3ms)
+  Rendered layouts/_login_panel.html.erb (2.5ms)
+  Rendered layouts/_header.html.erb (5.6ms)
+  Rendered layouts/_content.html.erb (0.4ms)
+Completed 200 OK in 136ms (Views: 126.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.self-aaba9e7bb237670793f2ce0331b3196394b5ebaf65f7af03aafafff26e958351.css?body=1" for 127.0.0.1 at 2018-12-10 20:45:43 +0800
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-12-10 20:45:43 +0800
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-12-10 20:45:43 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2018-12-10 20:45:44 +0800
+
+
+Started GET "/assets/bootstrap.min.self-504d59678f10d79a661b6cecdce5b8c1d5bfd98e860614584c0a40399552d61f.js?body=1" for 127.0.0.1 at 2018-12-10 20:45:44 +0800
+
+
+Started GET "/assets/bootstrap.file-input.self-467aac2b264df4efd6b902977182473cd79513a25b2028999facfa8ab1133fec.js?body=1" for 127.0.0.1 at 2018-12-10 20:45:44 +0800
+
+
+Started GET "/assets/sync.self-570ed504e84206f050c8bc30d052d71600f341b859ea362960c1fc810fcbb46a.js?body=1" for 127.0.0.1 at 2018-12-10 20:45:44 +0800
+
+
+Started GET "/assets/select2.min.self-29080377793c2a531be0bad7d46aa3fcf1ede0008ebf68b1e4f97927f368ac38.js?body=1" for 127.0.0.1 at 2018-12-10 20:45:44 +0800
+
+
+Started GET "/assets/toastr.min.self-d1e748daa450eccf497f106231f0e799b278d085d431d75f1df5eef9968808bd.js?body=1" for 127.0.0.1 at 2018-12-10 20:45:44 +0800
+
+
+Started GET "/assets/application.self-10ad0916cf31256fe71785e8dc9cc297a96b1cdf7b74aeb61711199b9a3d003f.js?body=1" for 127.0.0.1 at 2018-12-10 20:45:44 +0800
+
+
+Started GET "/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png" for 127.0.0.1 at 2018-12-10 20:45:44 +0800
+
+
+Started POST "/chats" for 127.0.0.1 at 2018-12-10 20:45:45 +0800
+Processing by ChatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XgGU0Am50qrmDKXbTc2OB+KddlyxmdAXvyqioOgAp+DpbgLK4WGnY7FlIRxMlnYZCTt6HnK/XtADj7kEGYPEug==", "users"=>"9", "button"=>""}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ?  [["chat_id", 3]]
+Redirected to http://localhost:3000/chats/3
+Completed 302 Found in 12ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/chats/3" for 127.0.0.1 at 2018-12-10 20:45:45 +0800
+Processing by ChatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mChat Load (0.1ms)[0m  SELECT  "chats".* FROM "chats" WHERE "chats"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ? AND "users"."id" = ? LIMIT 1[0m  [["chat_id", 3], ["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ?  [["chat_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 1]]
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered chats/_navside.html.erb (13.9ms)
+  Rendered chats/show.html.erb within layouts/application (15.3ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 1.5ms)
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    61: 
+    62:       <div class="tab-pane fade in" id="newfriends-tab">
+    63:         <ul class="list-group">
+    64:           <% @new_friends.each do |user| %>
+    65:             <li class="list-group-item" style="padding: 0px; margin-bottom: 0px;">
+    66: 
+    67:               <button class="btn btn-default btn-block" data-toggle="collapse" data-target="#user-<%= user.id %>" id="tab-contact-default">
+  app/views/chats/_navside.html.erb:64:in `_app_views_chats__navside_html_erb__1943748571788261794_47184689423900'
+  app/views/chats/show.html.erb:3:in `_app_views_chats_show_html_erb___2721572619119425806_47184701165480'
+
+
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (23.4ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.5ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (64.5ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (36.5ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (74.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-10 20:46:20 +0800
+Processing by HomesController#home as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered homes/home.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_login_panel.html.erb (2.3ms)
+  Rendered layouts/_header.html.erb (5.7ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 117ms (Views: 115.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/chats" for 127.0.0.1 at 2018-12-10 20:49:42 +0800
+Processing by ChatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XgGU0Am50qrmDKXbTc2OB+KddlyxmdAXvyqioOgAp+DpbgLK4WGnY7FlIRxMlnYZCTt6HnK/XtADj7kEGYPEug==", "users"=>"9", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ?  [["chat_id", 3]]
+Redirected to http://localhost:3000/chats/3
+Completed 302 Found in 11ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/chats/3" for 127.0.0.1 at 2018-12-10 20:49:43 +0800
+Processing by ChatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mChat Load (0.1ms)[0m  SELECT  "chats".* FROM "chats" WHERE "chats"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ? AND "users"."id" = ? LIMIT 1[0m  [["chat_id", 3], ["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ?  [["chat_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 1]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered chats/_navside.html.erb (12.8ms)
+  Rendered chats/show.html.erb within layouts/application (14.2ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 1.3ms)
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    61: 
+    62:       <div class="tab-pane fade in" id="newfriends-tab">
+    63:         <ul class="list-group">
+    64:           <% @new_friends.each do |user| %>
+    65:             <li class="list-group-item" style="padding: 0px; margin-bottom: 0px;">
+    66: 
+    67:               <button class="btn btn-default btn-block" data-toggle="collapse" data-target="#user-<%= user.id %>" id="tab-contact-default">
+  app/views/chats/_navside.html.erb:64:in `_app_views_chats__navside_html_erb__1943748571788261794_47184689423900'
+  app/views/chats/show.html.erb:3:in `_app_views_chats_show_html_erb___2721572619119425806_47184701165480'
+
+
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (32.9ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.0ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.6ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (77.5ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (37.6ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (75.6ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-12-10 20:49:56 +0800
+Processing by ChatsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 1]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered chats/_search_fridends.html.erb (0.3ms)
+  Rendered chats/_navside.html.erb (13.6ms)
+  Rendered chats/index.html.erb within layouts/application (15.1ms)
+  Rendered layouts/_login_panel.html.erb (2.0ms)
+  Rendered layouts/_header.html.erb (4.9ms)
+  Rendered layouts/_content.html.erb (0.2ms)
+Completed 200 OK in 130ms (Views: 118.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2018-12-10 20:49:56 +0800
+
+
+Started GET "/assets/application.self-aaba9e7bb237670793f2ce0331b3196394b5ebaf65f7af03aafafff26e958351.css?body=1" for 127.0.0.1 at 2018-12-10 20:49:56 +0800
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-12-10 20:49:56 +0800
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-12-10 20:49:56 +0800
+
+
+Started GET "/assets/bootstrap.min.self-504d59678f10d79a661b6cecdce5b8c1d5bfd98e860614584c0a40399552d61f.js?body=1" for 127.0.0.1 at 2018-12-10 20:49:56 +0800
+
+
+Started GET "/assets/bootstrap.file-input.self-467aac2b264df4efd6b902977182473cd79513a25b2028999facfa8ab1133fec.js?body=1" for 127.0.0.1 at 2018-12-10 20:49:56 +0800
+
+
+Started GET "/assets/sync.self-570ed504e84206f050c8bc30d052d71600f341b859ea362960c1fc810fcbb46a.js?body=1" for 127.0.0.1 at 2018-12-10 20:49:56 +0800
+
+
+Started GET "/assets/select2.min.self-29080377793c2a531be0bad7d46aa3fcf1ede0008ebf68b1e4f97927f368ac38.js?body=1" for 127.0.0.1 at 2018-12-10 20:49:56 +0800
+
+
+Started GET "/assets/toastr.min.self-d1e748daa450eccf497f106231f0e799b278d085d431d75f1df5eef9968808bd.js?body=1" for 127.0.0.1 at 2018-12-10 20:49:56 +0800
+
+
+Started GET "/assets/application.self-10ad0916cf31256fe71785e8dc9cc297a96b1cdf7b74aeb61711199b9a3d003f.js?body=1" for 127.0.0.1 at 2018-12-10 20:49:56 +0800
+
+
+Started GET "/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png" for 127.0.0.1 at 2018-12-10 20:49:56 +0800
+
+
+Started POST "/chats" for 127.0.0.1 at 2018-12-10 20:49:58 +0800
+Processing by ChatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SCXTI3QyXFcOkTLZ4Ml00VnEXnrDSeV2Fy92Xvy7gw3/SkU5nOopnln4th7hkozPsmJSOABva7Grim36DTjgVw==", "users"=>"9", "button"=>""}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mChat Load (0.2ms)[0m  SELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ?[0m  [["chat_id", 3]]
+Redirected to http://localhost:3000/chats/3
+Completed 302 Found in 11ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/chats/3" for 127.0.0.1 at 2018-12-10 20:49:58 +0800
+Processing by ChatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mChat Load (0.1ms)[0m  [1mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ? AND "users"."id" = ? LIMIT 1  [["chat_id", 3], ["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ?[0m  [["chat_id", 3]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?[0m  [["friend_id", 1]]
+  [1m[35mChat Load (0.2ms)[0m  SELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?  [["user_id", 1]]
+  Rendered chats/_navside.html.erb (14.0ms)
+  Rendered chats/show.html.erb within layouts/application (15.3ms)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 1.4ms)
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    61: 
+    62:       <div class="tab-pane fade in" id="newfriends-tab">
+    63:         <ul class="list-group">
+    64:           <% @new_friends.each do |user| %>
+    65:             <li class="list-group-item" style="padding: 0px; margin-bottom: 0px;">
+    66: 
+    67:               <button class="btn btn-default btn-block" data-toggle="collapse" data-target="#user-<%= user.id %>" id="tab-contact-default">
+  app/views/chats/_navside.html.erb:64:in `_app_views_chats__navside_html_erb__1943748571788261794_47184689423900'
+  app/views/chats/show.html.erb:3:in `_app_views_chats_show_html_erb___2721572619119425806_47184701165480'
+
+
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.7ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.3ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (71.9ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (37.3ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (73.8ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-12-10 20:54:19 +0800
+Processing by ChatsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?[0m  [["friend_id", 1]]
+  [1m[35mChat Load (0.2ms)[0m  SELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?  [["user_id", 1]]
+  Rendered chats/_navside.html.erb (113.5ms)
+  Rendered chats/index.html.erb within layouts/application (115.0ms)
+Completed 500 Internal Server Error in 131ms (ActiveRecord: 1.1ms)
+
+ActionView::Template::Error (undefined local variable or method `new_friends' for #<#<Class:0x000055d415365300>:0x000055d41a38fd30>
+Did you mean?  @new_friends):
+    61: 
+    62:       <div class="tab-pane fade in" id="newfriends-tab">
+    63:         <ul class="list-group">
+    64:           <% new_friends.each do |user| %>
+    65:             <li class="list-group-item" style="padding: 0px; margin-bottom: 0px;">
+    66: 
+    67:               <button class="btn btn-default btn-block" data-toggle="collapse" data-target="#user-<%= user.id %>" id="tab-contact-default">
+  app/views/chats/_navside.html.erb:64:in `_app_views_chats__navside_html_erb__1943748571788261794_47184721341940'
+  app/views/chats/index.html.erb:3:in `_app_views_chats_index_html_erb__3187801227629574826_47184688869280'
+
+
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (25.8ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.8ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (69.9ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.1ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (40.3ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (76.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-10 20:54:24 +0800
+Processing by HomesController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered homes/home.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_login_panel.html.erb (1.9ms)
+  Rendered layouts/_header.html.erb (4.8ms)
+  Rendered layouts/_content.html.erb (0.2ms)
+Completed 200 OK in 105ms (Views: 103.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-aaba9e7bb237670793f2ce0331b3196394b5ebaf65f7af03aafafff26e958351.css?body=1" for 127.0.0.1 at 2018-12-10 20:54:25 +0800
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-12-10 20:54:25 +0800
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-12-10 20:54:25 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2018-12-10 20:54:25 +0800
+
+
+Started GET "/assets/bootstrap.min.self-504d59678f10d79a661b6cecdce5b8c1d5bfd98e860614584c0a40399552d61f.js?body=1" for 127.0.0.1 at 2018-12-10 20:54:25 +0800
+
+
+Started GET "/assets/bootstrap.file-input.self-467aac2b264df4efd6b902977182473cd79513a25b2028999facfa8ab1133fec.js?body=1" for 127.0.0.1 at 2018-12-10 20:54:25 +0800
+
+
+Started GET "/assets/sync.self-570ed504e84206f050c8bc30d052d71600f341b859ea362960c1fc810fcbb46a.js?body=1" for 127.0.0.1 at 2018-12-10 20:54:25 +0800
+
+
+Started GET "/assets/select2.min.self-29080377793c2a531be0bad7d46aa3fcf1ede0008ebf68b1e4f97927f368ac38.js?body=1" for 127.0.0.1 at 2018-12-10 20:54:25 +0800
+
+
+Started GET "/assets/toastr.min.self-d1e748daa450eccf497f106231f0e799b278d085d431d75f1df5eef9968808bd.js?body=1" for 127.0.0.1 at 2018-12-10 20:54:25 +0800
+
+
+Started GET "/assets/application.self-10ad0916cf31256fe71785e8dc9cc297a96b1cdf7b74aeb61711199b9a3d003f.js?body=1" for 127.0.0.1 at 2018-12-10 20:54:25 +0800
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-12-10 20:54:26 +0800
+Processing by ChatsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 1]]
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered chats/_navside.html.erb (109.3ms)
+  Rendered chats/index.html.erb within layouts/application (111.1ms)
+Completed 500 Internal Server Error in 130ms (ActiveRecord: 1.2ms)
+
+ActionView::Template::Error (undefined local variable or method `new_friends' for #<#<Class:0x000055d415365300>:0x000055d4196c8390>
+Did you mean?  @new_friends):
+    61: 
+    62:       <div class="tab-pane fade in" id="newfriends-tab">
+    63:         <ul class="list-group">
+    64:           <% new_friends.each do |user| %>
+    65:             <li class="list-group-item" style="padding: 0px; margin-bottom: 0px;">
+    66: 
+    67:               <button class="btn btn-default btn-block" data-toggle="collapse" data-target="#user-<%= user.id %>" id="tab-contact-default">
+  app/views/chats/_navside.html.erb:64:in `_app_views_chats__navside_html_erb__1943748571788261794_47184721341940'
+  app/views/chats/index.html.erb:3:in `_app_views_chats_index_html_erb__3187801227629574826_47184688869280'
+
+
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.4ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.4ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (73.4ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (39.4ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.8ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (78.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-10 20:54:45 +0800
+Processing by HomesController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered homes/home.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_login_panel.html.erb (1.9ms)
+  Rendered layouts/_header.html.erb (4.5ms)
+  Rendered layouts/_content.html.erb (0.2ms)
+Completed 200 OK in 93ms (Views: 91.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-aaba9e7bb237670793f2ce0331b3196394b5ebaf65f7af03aafafff26e958351.css?body=1" for 127.0.0.1 at 2018-12-10 20:54:45 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2018-12-10 20:54:45 +0800
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-12-10 20:54:45 +0800
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-12-10 20:54:45 +0800
+
+
+Started GET "/assets/bootstrap.min.self-504d59678f10d79a661b6cecdce5b8c1d5bfd98e860614584c0a40399552d61f.js?body=1" for 127.0.0.1 at 2018-12-10 20:54:45 +0800
+
+
+Started GET "/assets/bootstrap.file-input.self-467aac2b264df4efd6b902977182473cd79513a25b2028999facfa8ab1133fec.js?body=1" for 127.0.0.1 at 2018-12-10 20:54:45 +0800
+
+
+Started GET "/assets/sync.self-570ed504e84206f050c8bc30d052d71600f341b859ea362960c1fc810fcbb46a.js?body=1" for 127.0.0.1 at 2018-12-10 20:54:45 +0800
+
+
+Started GET "/assets/select2.min.self-29080377793c2a531be0bad7d46aa3fcf1ede0008ebf68b1e4f97927f368ac38.js?body=1" for 127.0.0.1 at 2018-12-10 20:54:45 +0800
+
+
+Started GET "/assets/toastr.min.self-d1e748daa450eccf497f106231f0e799b278d085d431d75f1df5eef9968808bd.js?body=1" for 127.0.0.1 at 2018-12-10 20:54:45 +0800
+
+
+Started GET "/assets/application.self-10ad0916cf31256fe71785e8dc9cc297a96b1cdf7b74aeb61711199b9a3d003f.js?body=1" for 127.0.0.1 at 2018-12-10 20:54:45 +0800
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-12-10 20:54:46 +0800
+Processing by ChatsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?[0m  [["friend_id", 1]]
+  [1m[35mChat Load (0.3ms)[0m  SELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?  [["user_id", 1]]
+  Rendered chats/_search_fridends.html.erb (0.3ms)
+  Rendered chats/_navside.html.erb (38.4ms)
+  Rendered chats/index.html.erb within layouts/application (41.1ms)
+  Rendered layouts/_login_panel.html.erb (2.1ms)
+  Rendered layouts/_header.html.erb (4.8ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 150ms (Views: 138.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png" for 127.0.0.1 at 2018-12-10 20:54:47 +0800
+
+
+Started POST "/chats" for 127.0.0.1 at 2018-12-10 20:54:48 +0800
+Processing by ChatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UuLUCcVoUOAeZ9uMELLZB3iyXKrhFhA4UmO8BuJOvrDljUITLbAlKUkOX0sR6SEZkxRQ6CIwnv/uxqeiE83d6g==", "users"=>"9", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ?  [["chat_id", 3]]
+Redirected to http://localhost:3000/chats/3
+Completed 302 Found in 13ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/chats/3" for 127.0.0.1 at 2018-12-10 20:54:48 +0800
+Processing by ChatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mChat Load (0.1ms)[0m  SELECT  "chats".* FROM "chats" WHERE "chats"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ? AND "users"."id" = ? LIMIT 1[0m  [["chat_id", 3], ["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ?  [["chat_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 1]]
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered chats/_navside.html.erb (13.8ms)
+  Rendered chats/show.html.erb within layouts/application (15.1ms)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 1.5ms)
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    61: 
+    62:       <div class="tab-pane fade in" id="newfriends-tab">
+    63:         <ul class="list-group">
+    64:           <% @new_friends.each do |user| %>
+    65:             <li class="list-group-item" style="padding: 0px; margin-bottom: 0px;">
+    66: 
+    67:               <button class="btn btn-default btn-block" data-toggle="collapse" data-target="#user-<%= user.id %>" id="tab-contact-default">
+  app/views/chats/_navside.html.erb:64:in `_app_views_chats__navside_html_erb__1943748571788261794_47184739514760'
+  app/views/chats/show.html.erb:3:in `_app_views_chats_show_html_erb___2721572619119425806_47184701165480'
+
+
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (25.6ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.5ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (71.1ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (37.1ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.8ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+  Rendered /home/fcwpl/.rvm/gems/ruby-2.3.7/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (74.7ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-12-10 20:55:36 +0800
+Processing by ChatsController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 1]]
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered chats/_search_fridends.html.erb (0.4ms)
+  Rendered chats/_navside.html.erb (13.6ms)
+  Rendered chats/index.html.erb within layouts/application (15.4ms)
+  Rendered layouts/_login_panel.html.erb (1.8ms)
+  Rendered layouts/_header.html.erb (4.5ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 127ms (Views: 114.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2" for 127.0.0.1 at 2018-12-10 20:55:36 +0800
+
+
+Started POST "/chats" for 127.0.0.1 at 2018-12-10 20:56:30 +0800
+Processing by ChatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wD/uk0G5eupRRmSRh91DpF3WlKrFJkUrWPkGVxf7Plt3UHiJqWEPIwYv4FaGhru6tnCY6AYAy+zkXB3z5nhdAQ==", "users"=>"9", "button"=>""}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mChat Load (0.4ms)[0m  SELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ?[0m  [["chat_id", 3]]
+Redirected to http://localhost:3000/chats/3
+Completed 302 Found in 106ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/chats/3" for 127.0.0.1 at 2018-12-10 20:56:30 +0800
+Processing by ChatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mChat Load (0.4ms)[0m  [1mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ? AND "users"."id" = ? LIMIT 1  [["chat_id", 3], ["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ?[0m  [["chat_id", 3]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?[0m  [["friend_id", 1]]
+  [1m[35mChat Load (0.2ms)[0m  SELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?  [["user_id", 1]]
+  Rendered chats/_search_fridends.html.erb (0.2ms)
+  Rendered chats/_navside.html.erb (11.6ms)
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = ?[0m  [["chat_id", 3]]
+  Rendered chats/_chat_info.html.erb (3.1ms)
+  Rendered chats/show.html.erb within layouts/application (24.3ms)
+  Rendered layouts/_login_panel.html.erb (1.7ms)
+  Rendered layouts/_header.html.erb (4.2ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 185ms (Views: 118.8ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/chats/3" for 127.0.0.1 at 2018-12-10 20:56:32 +0800
+Processing by ChatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ? AND "users"."id" = ? LIMIT 1  [["chat_id", 3], ["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ?[0m  [["chat_id", 3]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?[0m  [["friend_id", 1]]
+  [1m[35mChat Load (0.2ms)[0m  SELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?  [["user_id", 1]]
+  Rendered chats/_search_fridends.html.erb (0.2ms)
+  Rendered chats/_navside.html.erb (10.1ms)
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = ?[0m  [["chat_id", 3]]
+  Rendered chats/_chat_info.html.erb (0.3ms)
+  Rendered chats/show.html.erb within layouts/application (17.1ms)
+  Rendered layouts/_login_panel.html.erb (1.4ms)
+  Rendered layouts/_header.html.erb (3.6ms)
+  Rendered layouts/_content.html.erb (0.2ms)
+Completed 200 OK in 141ms (Views: 123.9ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/messages" for 127.0.0.1 at 2018-12-10 20:56:38 +0800
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"body"=>"nihao"}, "chat_room"=>"3", "commit"=>"发送"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "chat_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["body", "nihao"], ["user_id", 1], ["chat_id", 3], ["created_at", "2018-12-10 12:56:38.173058"], ["updated_at", "2018-12-10 12:56:38.173058"]]
+  [1m[35m (3.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/chats/3
+Completed 200 OK in 28ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/chats/3" for 127.0.0.1 at 2018-12-10 20:56:38 +0800
+Processing by ChatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mChat Load (0.2ms)[0m  SELECT  "chats".* FROM "chats" WHERE "chats"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ? AND "users"."id" = ? LIMIT 1[0m  [["chat_id", 3], ["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ?  [["chat_id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 1]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered chats/_search_fridends.html.erb (0.3ms)
+  Rendered chats/_navside.html.erb (13.5ms)
+  [1m[35mMessage Load (0.2ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = ?  [["chat_id", 3]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered sync/messages/refetch/_message_row.html.erb (6.3ms)
+  Rendered chats/_chat_info.html.erb (0.5ms)
+  Rendered chats/show.html.erb within layouts/application (35.1ms)
+  Rendered layouts/_login_panel.html.erb (1.9ms)
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_content.html.erb (0.2ms)
+Completed 200 OK in 163ms (Views: 138.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/sync/refetch.json?auth_token=%2F42b4ae69b42a2ed6d64fd735ff7f512a8010d060&partial_name=message_row&resource_name=message&resource_id=6" for 127.0.0.1 at 2018-12-10 20:56:38 +0800
+Processing by Sync::RefetchesController#show as JSON
+  Parameters: {"auth_token"=>"/42b4ae69b42a2ed6d64fd735ff7f512a8010d060", "partial_name"=>"message_row", "resource_name"=>"message", "resource_id"=>"6"}
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered sync/messages/refetch/_message_row.html.erb (8.3ms)
+Completed 200 OK in 28ms (Views: 0.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/chats" for 127.0.0.1 at 2018-12-10 20:56:41 +0800
+Processing by ChatsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?  [["user_id", 9]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?[0m  [["friend_id", 9]]
+  [1m[35mChat Load (0.3ms)[0m  SELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?  [["user_id", 9]]
+  Rendered chats/_search_fridends.html.erb (0.3ms)
+  Rendered chats/_navside.html.erb (12.7ms)
+  Rendered chats/index.html.erb within layouts/application (14.0ms)
+  Rendered layouts/_login_panel.html.erb (2.2ms)
+  Rendered layouts/_header.html.erb (5.5ms)
+  Rendered layouts/_content.html.erb (0.3ms)
+Completed 200 OK in 126ms (Views: 113.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/chats/3" for 127.0.0.1 at 2018-12-10 20:56:43 +0800
+Processing by ChatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mChat Load (0.2ms)[0m  SELECT  "chats".* FROM "chats" WHERE "chats"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ? AND "users"."id" = ? LIMIT 1[0m  [["chat_id", 3], ["id", 9]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ?  [["chat_id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 9]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 9]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 9]]
+  Rendered chats/_search_fridends.html.erb (0.3ms)
+  Rendered chats/_navside.html.erb (10.2ms)
+  [1m[35mMessage Load (0.2ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = ?  [["chat_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered sync/messages/refetch/_message_row.html.erb (3.0ms)
+  Rendered chats/_chat_info.html.erb (4.3ms)
+  Rendered chats/show.html.erb within layouts/application (29.2ms)
+  Rendered layouts/_login_panel.html.erb (1.6ms)
+  Rendered layouts/_header.html.erb (3.9ms)
+  Rendered layouts/_content.html.erb (0.2ms)
+Completed 200 OK in 139ms (Views: 119.7ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/messages" for 127.0.0.1 at 2018-12-10 20:56:57 +0800
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"body"=>"hi"}, "chat_room"=>"3", "commit"=>"发送"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "chat_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["body", "hi"], ["user_id", 9], ["chat_id", 3], ["created_at", "2018-12-10 12:56:57.326921"], ["updated_at", "2018-12-10 12:56:57.326921"]]
+  [1m[35m (4.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/chats/3
+Completed 200 OK in 18ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/chats/3" for 127.0.0.1 at 2018-12-10 20:56:57 +0800
+Processing by ChatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mChat Load (0.2ms)[0m  SELECT  "chats".* FROM "chats" WHERE "chats"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ? AND "users"."id" = ? LIMIT 1[0m  [["chat_id", 3], ["id", 9]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "chats_users" ON "users"."id" = "chats_users"."user_id" WHERE "chats_users"."chat_id" = ?  [["chat_id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = ?[0m  [["user_id", 9]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."user_id" WHERE "friendships"."friend_id" = ?  [["friend_id", 9]]
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT "chats".* FROM "chats" INNER JOIN "chats_users" ON "chats"."id" = "chats_users"."chat_id" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 9]]
+  Rendered chats/_search_fridends.html.erb (0.3ms)
+  Rendered chats/_navside.html.erb (11.4ms)
+  [1m[35mMessage Load (0.2ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = ?  [["chat_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered sync/messages/refetch/_message_row.html.erb (3.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  Rendered sync/messages/refetch/_message_row.html.erb (2.4ms)
+  Rendered chats/_chat_info.html.erb (4.4ms)
+  Rendered chats/show.html.erb within layouts/application (37.2ms)
+  Rendered layouts/_login_panel.html.erb (1.8ms)
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_content.html.erb (0.2ms)
+Completed 200 OK in 158ms (Views: 132.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/sync/refetch.json?auth_token=%2Fcab1056001a77e1e0dc89debeb850b3a8471eab5&partial_name=message_row&resource_name=message&resource_id=7" for 127.0.0.1 at 2018-12-10 20:56:57 +0800
+Processing by Sync::RefetchesController#show as JSON
+  Parameters: {"auth_token"=>"/cab1056001a77e1e0dc89debeb850b3a8471eab5", "partial_name"=>"message_row", "resource_name"=>"message", "resource_id"=>"7"}
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 9]]
+  Rendered sync/messages/refetch/_message_row.html.erb (7.1ms)
+Completed 200 OK in 15ms (Views: 0.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/sync/refetch.json?auth_token=%2Fcab1056001a77e1e0dc89debeb850b3a8471eab5&partial_name=message_row&resource_name=message&resource_id=7" for 127.0.0.1 at 2018-12-10 20:56:57 +0800
+Processing by Sync::RefetchesController#show as JSON
+  Parameters: {"auth_token"=>"/cab1056001a77e1e0dc89debeb850b3a8471eab5", "partial_name"=>"message_row", "resource_name"=>"message", "resource_id"=>"7"}
+  [1m[35mMessage Load (0.2ms)[0m  SELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  Rendered sync/messages/refetch/_message_row.html.erb (6.4ms)
+Completed 200 OK in 14ms (Views: 0.6ms | ActiveRecord: 0.7ms)

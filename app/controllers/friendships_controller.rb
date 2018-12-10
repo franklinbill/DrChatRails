@@ -3,13 +3,13 @@ class FriendshipsController < ApplicationController
   before_action :logged_in
 
   def create
-    friendid = params[:friend_id]
-    if !friendid.nil?
+    new_friend_id = params[:friend_id]
+    if !new_friend_id.nil?
       @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
     else
       user=User.find_by_id(params[:id])
-      apply=user.friendships.find_by(friend_id: current_user[:id])
-      if !apply.nil?
+      application=user.friendships.find_by(friend_id: current_user[:id])
+      if !application.nil?
         @friendship = current_user.friendships.build(:friend_id => params[:id])
       end
     end

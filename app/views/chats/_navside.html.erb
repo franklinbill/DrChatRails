@@ -61,7 +61,7 @@
 
       <div class="tab-pane fade in" id="newfriends-tab">
         <ul class="list-group">
-          <% @newfriends.each do |user| %>
+          <% @new_friends.each do |user| %>
             <li class="list-group-item" style="padding: 0px; margin-bottom: 0px;">
 
               <button class="btn btn-default btn-block" data-toggle="collapse" data-target="#user-<%= user.id %>" id="tab-contact-default">
@@ -86,7 +86,7 @@
 
       <div class="tab-pane fade in" id="apply-tab">
         <ul class="list-group">
-        <% @apply.each do |user| %>
+        <% @applications.each do |user| %>
           <li class="list-group-item" style="padding: 0px; margin-bottom: 0px;">
 
             <button class="btn btn-default btn-block" data-toggle="collapse" data-target="#user-<%= user.id %>" id="tab-contact-default">
