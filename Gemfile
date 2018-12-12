@@ -10,6 +10,8 @@ gem 'rails_admin_rollincode', '~> 1.0'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 
+gem 'devise'
+
 # for download
 gem 'paperclip'
 

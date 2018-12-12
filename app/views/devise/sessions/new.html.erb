@@ -1,0 +1,20 @@
+<center>
+<h2>管理员界面</h2>
+<br></br>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :email,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "email" }, label:'账号：' %>
+    <%= f.input :password,
+                required: false,
+                input_html: { autocomplete: "current-password" }, label:'密码：' %>
+    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Log in" %>
+  </div>
+<% end %>
+</center>
