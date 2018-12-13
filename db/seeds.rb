@@ -18,17 +18,23 @@
       status: Faker::Company.profession
   )
 end
-  User.create(
-    name: "Dr.Chat",
-    email: "Dr.Chat@robot.com",
-    password: 'password',
-    role: 100,
-    sex: 'Robot',
-    phonenumber: Faker::PhoneNumber.phone_number,
-    status: 'Robot'
-  )
-
-User.first.friendships.create(:friend_id => 2)
-User.first.friendships.create(:friend_id => 3)
+User.create(
+  name: "Dr.Chat",
+  email: "Dr.Chat@robot.com",
+  password: 'password',
+  role: 100,
+  sex: 'Robot',
+  phonenumber: Faker::PhoneNumber.phone_number,
+  status: 'Robot'
+)
+Admin.create(
+  email: "admin@test.com",
+  password: 'password',
+)
+Robot.create(
+  response_times: 0,
+  total_time: 0.0,
+  solve_times: 0
+)
 
   
