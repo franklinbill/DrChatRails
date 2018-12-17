@@ -118,6 +118,30 @@
   color: #a07617;
 }
 
+.speech-read {
+  text-align: right;
+}
+
+.speech-read > .speech:before {
+  left: auto;
+  right: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 7px solid #a0a09f;
+  border-right: 0;
+  margin: 15px -6px 0 0;
+}
+
+.speech-read > .speech {
+  background: #a0a09f;
+  color: #ffffff;
+  text-align: right;
+}
+
+.speech-read > .speech .media-heading {
+  color: #ffffff;
+}
+
 .nano > .nano-pane {
   background-color: rgba(0, 0, 0, 0.1);
   position: absolute;

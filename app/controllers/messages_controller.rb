@@ -17,6 +17,16 @@ class MessagesController < ApplicationController
           sync_update chat
         end
       end
+
+      # messages=Message.where(chat_id: chat.id)
+      # for message in messages
+      #   read_flags=ReadFlag.where(flag: false, user_id: current_user.id, message_id: message[:id])
+      #   for read_flag in read_flags
+      #     puts read_flag[:id]
+      #     read_flag.update(flag: true)
+      #   end
+      # end
+
       sync_new @message, scope: chat
       robot=User.find_by(role: 100)
       if chat.users.include?(robot)
@@ -37,7 +47,6 @@ class MessagesController < ApplicationController
         end_time=Time.now
         res_time=end_time-start_time
         response = JSON.parse(json)
-        puts response
         code=response["intent"]["code"]
         if !@@err_code.include?(code)
           text = response["results"][0]["values"]["text"]

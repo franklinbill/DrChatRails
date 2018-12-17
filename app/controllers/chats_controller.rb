@@ -108,10 +108,6 @@ class ChatsController < ApplicationController
     @has_robot=@chat.users.include?(robot)
     if @has_robot
       @robot_attr=Robot.find_by_id(1);
-      # @respond_times=robot_attr[:respond_times]
-      # @avg_res_time=robot_attr[:total_time] * 100 / robot_attr[:respond_times]
-      # @solve_times=robot_attr[:solve_times]
-      # @solve_rate=@solve_times / @respond_times
     end
   end
 

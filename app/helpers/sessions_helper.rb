@@ -50,4 +50,41 @@ module SessionsHelper
     @read_flag_count=ReadFlag.joins(:message).where(user_id:current_user.id, flag:false, messages: {chat_id: chat_id}).count
   end
 
+  def read_or_not(chat_id, current_user_id, message_user_id, message_id)
+    chat=Chat.find_by_id(chat_id)
+    users=chat.users
+
+    if users.size>2
+      return false
+    end
+
+    reciver_id=current_user_id
+    for user in users
+      if user.id!=message_user_id
+        reciver_id=user.id
+        break;
+      end
+    end
+
+    if current_user_id!=reciver_id
+      read_flags=ReadFlag.where(user_id:reciver_id, message_id: message_id)
+      read_flag=read_flags.first
+      if read_flag.nil?
+        return false
+      else
+        return read_flag[:flag]
+      end
+    end
+
+    return false
+  end
+
+  def chatroom_user_num(chat_id)
+    if chat_id < 1
+      return 0;
+    else
+      chat=Chat.find_by_id(chat_id)
+      return chat.users.size
+    end
+  end
 end
