@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   include SessionsHelper
-  before_action :set_user, except: [:index, :new, :index_json]
+  before_action :set_user, except: [:index, :new, :index_json, :create]
   before_action :logged_in, only: [:show]
   before_action :correct_user, only: :show
 
@@ -10,13 +10,15 @@ class UsersController < ApplicationController
 
   def create
     @user=User.new(user_params)
+    @user.phonenumber=""
+    @user.role=1
+    @user.sex="male"
+    @user.status="user"
     if @user.save
-      @user.create_salary
-      @user.create_performance
-      redirect_to users_path, flash: {success: "添加成功"}
+      redirect_to root_path, flash: {success: "注册成功"}
+      log_in @user
     else
-      flash[:warning] = "账号信息填写有误,请重试"
-      render 'new'
+      redirect_to root_path, flash: {error: "信息填写有误或已被注册,请重试"}
     end
   end
 
