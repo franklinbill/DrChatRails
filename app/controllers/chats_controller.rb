@@ -75,6 +75,11 @@ class ChatsController < ApplicationController
     @applications=current_user.friends - current_user.inverse_friends
     @friends_out_chat=@friends-@chat.users
 
+    read_flags = ReadFlag.joins(:message).where(user_id:current_user.id, flag:false, messages: {chat_id: params[:id]})
+    for flag in read_flags
+      flag.update(flag: true)
+    end
+
     robot=User.find_by(role: 100)
     @has_robot=@chat.users.include?(robot)
     if @has_robot

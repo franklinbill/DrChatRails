@@ -46,5 +46,8 @@ module SessionsHelper
     user == current_user
   end
 
+  def read_flag_count(chat_id)
+    @read_flag_count=ReadFlag.joins(:message).where(user_id:current_user.id, flag:false, messages: {chat_id: chat_id}).count
+  end
 
 end

@@ -11,6 +11,12 @@ class MessagesController < ApplicationController
     @message.chat=chat
     
     if @message.save
+      for u in chat.users
+        if u[:id]!=current_user[:id]
+          ReadFlag.create(flag: false, user_id: u[:id], message_id: @message[:id]);
+          sync_update chat
+        end
+      end
       sync_new @message, scope: chat
       robot=User.find_by(role: 100)
       if chat.users.include?(robot)

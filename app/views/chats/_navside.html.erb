@@ -54,6 +54,7 @@
               <%= link_to chat_path(chatroom), class: 'list-group-item' do %>
                   <i class="fa fa-wechat fa-5"></i> <%= truncate(chatroom.name, length: 10) %>
                   <text id="chatroom-<%= chatroom.id %>"></text>
+                  <%= sync partial: 'message_read_row', resource: chatroom, refetch: true %>
               <% end %>
           <% end %>
         </ul>
