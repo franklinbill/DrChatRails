@@ -28,11 +28,25 @@
             <% else %>
                 <li>
                   <%= link_to delete_user_chat_path(user_id: current_user.id, id: @chat.id), method: :delete do %>
-                      <i class="fa fa-times"></i> 退出聊天
+                      <i class="fa fa-times fa-fw"></i> 退出聊天
                   <% end %>
                 </li>
             <% end %>
-
+              <li>
+                <%= link_to set_priority_chat_path(user_id: current_user.id, id: @chat.id, priority: "up"), method: :patch do %>
+                    <i class="fa fa-smile-o fa-fw"></i> 置顶聊天
+                <% end %>
+              </li>
+              <li>
+                <%= link_to set_priority_chat_path(user_id: current_user.id, id: @chat.id, priority: "reset"), method: :patch do %>
+                    <i class="fa fa-meh-o fa-fw"></i> 重置聊天
+                <% end %>
+              </li>
+              <li>
+                <%= link_to set_priority_chat_path(user_id: current_user.id, id: @chat.id, priority: "down"), method: :patch do %>
+                    <i class="fa fa-frown-o fa-fw"></i> 屏蔽聊天
+                <% end %>
+              </li>
           </ul>
         </div>
       </div>

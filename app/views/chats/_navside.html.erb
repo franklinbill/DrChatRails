@@ -8,10 +8,10 @@
         <a href="#chat-tab" data-toggle="tab"><i class="fa fa-weixin"></i>聊天</a>
       </li>
       <li>
-        <a href="#newfriends-tab" data-toggle="tab"><i class="fa fa-book"></i>新朋友</a>
+        <a href="#newfriends-tab" data-toggle="tab"><i class="fa fa-envelope"></i>新朋友</a>
       </li>
       <li>
-        <a href="#apply-tab" data-toggle="tab"><i class="fa fa-weixin"></i>申请</a>
+        <a href="#apply-tab" data-toggle="tab"><i class="fa fa-plus"></i>申请</a>
       </li>
     </ul>
   </div>
@@ -50,11 +50,29 @@
 
       <div class="tab-pane fade in <%= chat_active %>" id="chat-tab">
         <ul class="list-group">
-          <% current_user.chats.each do |chatroom| %>
+          <% index=0 %>
+          <% priority = 0 %>
+          <% @chats_users.each do |chat_user| %>
+            <% if priority!=chat_user.priority %>
+              <% priority=chat_user.priority %>
+              <% if index!= 0 %>
+                <hr></hr>
+              <% end %>
+              <% index=index+1 %>
+            <% end %>
+            <% chatroom=chat_user.chat %>
               <%= link_to chat_path(chatroom), class: 'list-group-item' do %>
+                <% if priority==2 %>
+                  <i class="fa fa-smile-o fa-5"></i> <%= truncate(chatroom.name, length: 10) %>
+                <% elsif priority==1 %>
                   <i class="fa fa-wechat fa-5"></i> <%= truncate(chatroom.name, length: 10) %>
-                  <text id="chatroom-<%= chatroom.id %>"></text>
+                <% else %>
+                  <i class="fa fa-frown-o fa-5"></i> <%= truncate(chatroom.name, length: 10) %>
+                <% end %>
+                <text id="chatroom-<%= chatroom.id %>"></text>
+                <% if priority!=0 %>
                   <%= sync partial: 'message_read_row', resource: chatroom, refetch: true %>
+                <% end %>
               <% end %>
           <% end %>
         </ul>

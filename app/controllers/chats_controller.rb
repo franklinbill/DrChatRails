@@ -10,6 +10,7 @@ class ChatsController < ApplicationController
     @friends=current_user.friends & current_user.inverse_friends
     @new_friends=current_user.inverse_friends - current_user.friends
     @applications=current_user.friends - current_user.inverse_friends
+    @chats_users=ChatsUser.where(user_id:current_user.id).order(priority: :desc)
   end
 
   def add_user
@@ -57,6 +58,28 @@ class ChatsController < ApplicationController
     redirect_to chat_path(@chat), flash: flash
   end
 
+  def set_priority
+    chats_users=ChatsUser.where(user_id: params[:user_id], chat_id: @chat.id).limit(1)
+    if !chats_users.nil?
+      chat_user=chats_users.first
+      if !chat_user.nil?
+        if params[:priority]=="up"
+          chat_user[:priority]=2
+        elsif params[:priority]=="reset"
+          chat_user[:priority]=1
+        else
+          chat_user[:priority]=0
+        end
+        
+        if chat_user.save
+          redirect_to chat_path(@chat), flash: {success: '操作成功！'}
+          return
+        end
+      end
+    end
+    redirect_to chat_path(@chat), flash: {warning: '操作失败！'}
+  end
+
   def trans_auth
     @chat.update_attribute(:admin_id, params[:admin_id])
     redirect_to chat_path(@chat), flash: {success: '移交成功！'}
@@ -74,8 +97,9 @@ class ChatsController < ApplicationController
     @new_friends=current_user.inverse_friends - current_user.friends
     @applications=current_user.friends - current_user.inverse_friends
     @friends_out_chat=@friends-@chat.users
+    @chats_users=ChatsUser.where(user_id:current_user.id).order(priority: :desc)
 
-    read_flags = ReadFlag.joins(:message).where(user_id:current_user.id, flag:false, messages: {chat_id: params[:id]})
+    read_flags=ReadFlag.joins(:message).where(user_id:current_user.id, flag:false, messages: {chat_id: params[:id]})
     for flag in read_flags
       flag.update(flag: true)
     end

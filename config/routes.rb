@@ -83,6 +83,7 @@ Rails.application.routes.draw do
       patch :trans_auth
       post :add_user
       delete :delete_user
+      patch :set_priority
     end
   end
 
