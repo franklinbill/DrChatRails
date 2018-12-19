@@ -38,7 +38,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "password should not be too short" do
-    @user.password = "1"
+    @user.password = "12"
     assert_not @user.valid?
   end
 
