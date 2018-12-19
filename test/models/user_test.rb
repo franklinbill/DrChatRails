@@ -26,4 +26,20 @@ class UserTest < ActiveSupport::TestCase
     @user.password = " "
     assert_not @user.valid?
   end
+
+  test "name should not be too long" do
+    @user.name = "user" * 51
+    assert_not @user.valid?
+  end
+
+  test "email should not be too long" do
+    @user.email = "user" * 250 + "@test.com"
+    assert_not @user.valid?
+  end
+
+  test "password should not be too short" do
+    @user.password = "1"
+    assert_not @user.valid?
+  end
+
 end
