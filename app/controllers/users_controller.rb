@@ -10,10 +10,10 @@ class UsersController < ApplicationController
 
   def create
     @user=User.new(user_params)
-    @user.phonenumber=""
-    @user.role=1
-    @user.sex="male"
-    @user.status="user"
+    # @user.phonenumber=""
+    # @user.role=1
+    # @user.sex="secret"
+    # @user.status="user"
     if @user.save
       redirect_to root_path, flash: {success: "注册成功"}
       log_in @user
