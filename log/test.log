@@ -847,6 +847,7 @@ UserTest: test_name_should_be_present
 -------------------------------------
   [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@test.com') LIMIT 1[0m
   [1m[35m (0.2ms)[0m  rollback transaction
+<<<<<<< HEAD
   [1m[36mActiveRecord::SchemaMigration Load (2.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35m (0.4ms)[0m  begin transaction
 ---------------------------------------------------------------
@@ -42292,10 +42293,504 @@ ChatsControllerTest: test_should_create_chat
 --------------------------------------------
   [1m[36mChat Load (0.4ms)[0m  [1mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = ? LIMIT 1[0m  [["id", 980190962]]
   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "chats"
+=======
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.7ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:02:34', '2018-12-20 16:02:34', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:02:34', '2018-12-20 16:02:34', 298486374)[0m
+  [1m[35mFixture Delete (1.5ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:02:34', '2018-12-20 16:02:34', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:02:34', '2018-12-20 16:02:34', 298486374)
+  [1m[36mFixture Delete (0.8ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:03:39', '2018-12-20 16:03:39', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:03:39', '2018-12-20 16:03:39', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:03:39', '2018-12-20 16:03:39', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:03:39', '2018-12-20 16:03:39', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:28:19', '2018-12-20 16:28:19', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:28:19', '2018-12-20 16:28:19', 298486374)[0m
+  [1m[35mFixture Delete (0.8ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:28:19', '2018-12-20 16:28:19', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:28:19', '2018-12-20 16:28:19', 298486374)
+  [1m[36mFixture Delete (0.6ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "messages"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:28:19', '2018-12-20 16:28:19', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:28:19', '2018-12-20 16:28:19', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:28:19', '2018-12-20 16:28:19', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:28:19', '2018-12-20 16:28:19', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "friendships"
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:28:19', '2018-12-20 16:28:19', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:28:19', '2018-12-20 16:28:19', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:28:19', '2018-12-20 16:28:19', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:28:19', '2018-12-20 16:28:19', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.7ms)[0m  DELETE FROM "messages"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:28:19', '2018-12-20 16:28:19', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:28:19', '2018-12-20 16:28:19', 298486374)
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:28:19', '2018-12-20 16:28:19', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:28:19', '2018-12-20 16:28:19', 298486374)[0m
+  [1m[35mFixture Delete (2.0ms)[0m  DELETE FROM "friendships"
+  [1m[36m (5.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.6ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:28:19', '2018-12-20 16:28:19', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:28:19', '2018-12-20 16:28:19', 298486374)[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:28:19', '2018-12-20 16:28:19', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:28:19', '2018-12-20 16:28:19', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.9ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:31:23', '2018-12-20 16:31:23', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:31:23', '2018-12-20 16:31:23', 298486374)[0m
+  [1m[35mFixture Delete (0.9ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:31:23', '2018-12-20 16:31:23', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:31:23', '2018-12-20 16:31:23', 298486374)
+  [1m[36mFixture Delete (0.8ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:32:38', '2018-12-20 16:32:38', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:32:38', '2018-12-20 16:32:38', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:32:38', '2018-12-20 16:32:38', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:32:38', '2018-12-20 16:32:38', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:32:54', '2018-12-20 16:32:54', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:32:54', '2018-12-20 16:32:54', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:32:54', '2018-12-20 16:32:54', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:32:54', '2018-12-20 16:32:54', 298486374)
+  [1m[36mFixture Delete (0.8ms)[0m  [1mDELETE FROM "chats"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:32:54', '2018-12-20 16:32:54', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:32:54', '2018-12-20 16:32:54', 298486374)[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"tangyubao", "email"=>"337537001@qq.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('337537001@qq.com') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "phonenumber", "role", "sex", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "tangyubao"], ["email", "337537001@qq.com"], ["password_digest", "$2a$04$MFzs2FBGoPRbut4Fk87IxulrobQgHljtr9DdGCHUGQC2VPYX1m.La"], ["phonenumber", ""], ["role", 1], ["sex", "male"], ["status", "user"], ["created_at", "2018-12-20 16:32:54.852445"], ["updated_at", "2018-12-20 16:32:54.852445"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 17ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:44:13', '2018-12-20 16:44:13', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:44:13', '2018-12-20 16:44:13', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:44:13', '2018-12-20 16:44:13', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:44:13', '2018-12-20 16:44:13', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "chats"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:44:13', '2018-12-20 16:44:13', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:44:13', '2018-12-20 16:44:13', 298486374)[0m
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"tangyubao", "email"=>"337537001@qq.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('337537001@qq.com') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "phonenumber", "role", "sex", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "tangyubao"], ["email", "337537001@qq.com"], ["password_digest", "$2a$04$7QIbvYlwXcbskKKcCou2feX76Ca35icy8A6eEUsPKqeajt99h4txm"], ["phonenumber", ""], ["role", 1], ["sex", "male"], ["status", "user"], ["created_at", "2018-12-20 16:44:13.919001"], ["updated_at", "2018-12-20 16:44:13.919001"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 19ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:44:22', '2018-12-20 16:44:22', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:44:22', '2018-12-20 16:44:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:44:22', '2018-12-20 16:44:22', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:44:22', '2018-12-20 16:44:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "chats"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:44:22', '2018-12-20 16:44:22', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:44:22', '2018-12-20 16:44:22', 298486374)[0m
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Redirected to http://test.host/
+Filter chain halted as :logged_in rendered or redirected
+Completed 302 Found in 18ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:46:46', '2018-12-20 16:46:46', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:46:46', '2018-12-20 16:46:46', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:46:46', '2018-12-20 16:46:46', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:46:46', '2018-12-20 16:46:46', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "chats"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:46:46', '2018-12-20 16:46:46', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:46:46', '2018-12-20 16:46:46', 298486374)[0m
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"tangyubao", "email"=>"337537001@qq.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('337537001@qq.com') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "phonenumber", "role", "sex", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "tangyubao"], ["email", "337537001@qq.com"], ["password_digest", "$2a$04$TdMIaxuWL6uczFOC9ep7ue4laVgqpRF7GzydL9NHUF1vN/5h8c03m"], ["phonenumber", ""], ["role", 1], ["sex", "male"], ["status", "user"], ["created_at", "2018-12-20 16:46:46.689236"], ["updated_at", "2018-12-20 16:46:46.689236"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 15ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "chats_users" WHERE "chats_users"."user_id" = ?[0m  [["user_id", 980190962]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users?new=false
+Completed 302 Found in 33ms (ActiveRecord: 1.1ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"tangyubao", "email"=>"337537001@qq.com", "password"=>"[FILTERED]"}, "id"=>"980190962"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('337537001@qq.com') AND "users"."id" != 980190962) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "name" = ?, "email" = ?, "password_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "tangyubao"], ["email", "337537001@qq.com"], ["password_digest", "$2a$04$8AvqUHJYxCuJirqpAT4bmeZfuJDnFw4JRKl.rC.TTy32W5v4LX94."], ["updated_at", "2018-12-20 16:46:46.739154"], ["id", 980190962]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/
+Completed 302 Found in 8ms (ActiveRecord: 0.8ms)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Redirected to http://test.host/
+Filter chain halted as :logged_in rendered or redirected
+Completed 302 Found in 15ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:47:09', '2018-12-20 16:47:09', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:47:09', '2018-12-20 16:47:09', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:47:09', '2018-12-20 16:47:09', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:47:09', '2018-12-20 16:47:09', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "chats"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:47:09', '2018-12-20 16:47:09', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:47:09', '2018-12-20 16:47:09', 298486374)[0m
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"tangyubao", "email"=>"337537001@qq.com", "password"=>"[FILTERED]"}, "id"=>"980190962"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('337537001@qq.com') AND "users"."id" != 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "name" = ?, "email" = ?, "password_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["name", "tangyubao"], ["email", "337537001@qq.com"], ["password_digest", "$2a$04$fXVzetg71VDg5CH9hYTHhu/aJdmUB8vPCfo1K1JvlLhhPEFRBEsBC"], ["updated_at", "2018-12-20 16:47:09.843376"], ["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 15ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:47:41', '2018-12-20 16:47:41', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:47:41', '2018-12-20 16:47:41', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:47:41', '2018-12-20 16:47:41', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:47:41', '2018-12-20 16:47:41', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "chats"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:47:41', '2018-12-20 16:47:41', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:47:41', '2018-12-20 16:47:41', 298486374)[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "chats_users" WHERE "chats_users"."user_id" = ?  [["user_id", 980190962]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users?new=false
+Completed 302 Found in 17ms (ActiveRecord: 0.7ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:49:35', '2018-12-20 16:49:35', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:49:35', '2018-12-20 16:49:35', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:49:35', '2018-12-20 16:49:35', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:49:35', '2018-12-20 16:49:35', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "chats"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:49:35', '2018-12-20 16:49:35', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:49:35', '2018-12-20 16:49:35', 298486374)[0m
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "chats_users" WHERE "chats_users"."user_id" = ?  [["user_id", 980190962]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users?new=false
+Completed 302 Found in 19ms (ActiveRecord: 0.6ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:49:47', '2018-12-20 16:49:47', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:49:47', '2018-12-20 16:49:47', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:49:47', '2018-12-20 16:49:47', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:49:47', '2018-12-20 16:49:47', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "chats"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:49:47', '2018-12-20 16:49:47', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:49:47', '2018-12-20 16:49:47', 298486374)[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "chats_users" WHERE "chats_users"."user_id" = ?  [["user_id", 980190962]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users?new=false
+Completed 302 Found in 17ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.6ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:50:39', '2018-12-20 16:50:39', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:50:39', '2018-12-20 16:50:39', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:50:39', '2018-12-20 16:50:39', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:50:39', '2018-12-20 16:50:39', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "chats"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:50:39', '2018-12-20 16:50:39', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:50:39', '2018-12-20 16:50:39', 298486374)[0m
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.8ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:58:29', '2018-12-20 16:58:29', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:58:29', '2018-12-20 16:58:29', 298486374)[0m
+  [1m[35mFixture Delete (1.5ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:58:29', '2018-12-20 16:58:29', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:58:29', '2018-12-20 16:58:29', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "chats"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:58:29', '2018-12-20 16:58:29', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:58:29', '2018-12-20 16:58:29', 298486374)[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Redirected to http://test.host/
+Filter chain halted as :logged_in rendered or redirected
+Completed 302 Found in 20ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:59:37', '2018-12-20 16:59:37', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-20 16:59:37', '2018-12-20 16:59:37', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:59:37', '2018-12-20 16:59:37', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:59:37', '2018-12-20 16:59:37', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "chats"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:59:37', '2018-12-20 16:59:37', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-20 16:59:37', '2018-12-20 16:59:37', 298486374)[0m
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "chats_users" WHERE "chats_users"."user_id" = ?  [["user_id", 980190962]]
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users?new=false
+Completed 302 Found in 26ms (ActiveRecord: 0.8ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.2ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-21 01:12:43', '2018-12-21 01:12:43', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2018-12-21 01:12:43', '2018-12-21 01:12:43', 298486374)[0m
+  [1m[35mFixture Delete (0.9ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-21 01:12:43', '2018-12-21 01:12:43', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-21 01:12:43', '2018-12-21 01:12:43', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "chats"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-21 01:12:43', '2018-12-21 01:12:43', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-21 01:12:43', '2018-12-21 01:12:43', 298486374)[0m
+  [1m[35m (4.2ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "messages" ("created_at", "updated_at", "id") VALUES ('2018-12-21 14:51:49', '2018-12-21 14:51:49', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "messages" ("created_at", "updated_at", "id") VALUES ('2018-12-21 14:51:49', '2018-12-21 14:51:49', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-21 14:51:49', '2018-12-21 14:51:49', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-21 14:51:49', '2018-12-21 14:51:49', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "friendships" ("created_at", "updated_at", "id") VALUES ('2018-12-21 14:51:49', '2018-12-21 14:51:49', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "friendships" ("created_at", "updated_at", "id") VALUES ('2018-12-21 14:51:49', '2018-12-21 14:51:49', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "chats"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-21 14:51:49', '2018-12-21 14:51:49', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-21 14:51:49', '2018-12-21 14:51:49', 298486374)
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------
+ChatsControllerTest: test_should_destroy_chat
+---------------------------------------------
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "chats"
+Processing by ChatsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Redirected to http://test.host/
+Filter chain halted as :logged_in rendered or redirected
+Completed 302 Found in 12ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "chats"[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+ChatsControllerTest: test_should_create_chat
+--------------------------------------------
+  [1m[35mChat Load (0.1ms)[0m  SELECT  "chats".* FROM "chats" WHERE "chats"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "chats"[0m
+>>>>>>> 6b43e7b50ba83abcec2bebcd91cade0b3e08c95a
 Processing by ChatsController#create as HTML
   Parameters: {"chat"=>{"name"=>"chat1", "description"=>"user1&user2"}}
 Redirected to http://test.host/
 Filter chain halted as :logged_in rendered or redirected
+<<<<<<< HEAD
 Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "chats"[0m
   [1m[35m (0.1ms)[0m  rollback transaction
@@ -42304,11 +42799,22 @@ Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
 ChatsControllerTest: test_should_update_chat
 --------------------------------------------
   [1m[35mChat Load (0.1ms)[0m  SELECT  "chats".* FROM "chats" WHERE "chats"."id" = ? LIMIT 1  [["id", 980190962]]
+=======
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "chats"
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+ChatsControllerTest: test_should_update_chat
+--------------------------------------------
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+>>>>>>> 6b43e7b50ba83abcec2bebcd91cade0b3e08c95a
 Processing by ChatsController#update as HTML
   Parameters: {"chat"=>{"name"=>"chat1", "description"=>"user1&user2"}, "id"=>"980190962"}
 Redirected to http://test.host/
 Filter chain halted as :logged_in rendered or redirected
 Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+<<<<<<< HEAD
   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
   [1m[35m (0.1ms)[0m  begin transaction
 ---------------------------------------------
@@ -43117,3 +43623,71 @@ Redirected to http://www.example.com/
 Completed 302 Found in 13ms (ActiveRecord: 0.6ms)
   [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users"
   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+=======
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "messages"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "messages" ("created_at", "updated_at", "id") VALUES ('2018-12-21 14:52:21', '2018-12-21 14:52:21', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "messages" ("created_at", "updated_at", "id") VALUES ('2018-12-21 14:52:21', '2018-12-21 14:52:21', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-21 14:52:21', '2018-12-21 14:52:21', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2018-12-21 14:52:21', '2018-12-21 14:52:21', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "friendships" ("created_at", "updated_at", "id") VALUES ('2018-12-21 14:52:21', '2018-12-21 14:52:21', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "friendships" ("created_at", "updated_at", "id") VALUES ('2018-12-21 14:52:21', '2018-12-21 14:52:21', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "chats"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-21 14:52:21', '2018-12-21 14:52:21', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "chats" ("created_at", "updated_at", "id") VALUES ('2018-12-21 14:52:21', '2018-12-21 14:52:21', 298486374)
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"user1", "email"=>"user1@test.com", "password"=>"[FILTERED]", "phonenumber"=>"123456677777", "sex"=>"male"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@test.com') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "sex", "password_digest", "phonenumber", "role", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "user1"], ["email", "user1@test.com"], ["sex", "male"], ["password_digest", "$2a$04$VDb1FOSWyV6gfqTMlkafQ.bNyKFmB7MrpRXewzOxV6Ldm9vHnQejy"], ["phonenumber", ""], ["role", 1], ["status", "user"], ["created_at", "2018-12-21 14:52:21.619209"], ["updated_at", "2018-12-21 14:52:21.619209"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/
+Completed 302 Found in 22ms (ActiveRecord: 0.6ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.9ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "chats_users" WHERE "chats_users"."user_id" = ?  [["user_id", 980190962]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users?new=false
+Completed 302 Found in 25ms (ActiveRecord: 0.6ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"user1", "email"=>"user1@test.com", "password"=>"[FILTERED]", "phonenumber"=>"123456677777", "sex"=>"male"}, "id"=>"980190962"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('user1@test.com') AND "users"."id" != 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "name" = ?, "email" = ?, "sex" = ?, "password_digest" = ?, "phonenumber" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["name", "user1"], ["email", "user1@test.com"], ["sex", "male"], ["password_digest", "$2a$04$0H1pE6MRvlyMR2tjqZjr4e8QnCOnoZ8srH7Bg4Or2xYOSDvC5YHvq"], ["phonenumber", "123456677777"], ["updated_at", "2018-12-21 14:52:21.660400"], ["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+>>>>>>> 6b43e7b50ba83abcec2bebcd91cade0b3e08c95a
