@@ -30,45 +30,59 @@
 * 请用两个浏览器分别登陆不同的用户来测试消息的即使推送，注意这两个用户需要互为好友
 
 ## 项目开发
-在基于本项目进行继续开发时，本项目的执行步骤如下：
-    bundle install
-    rake db:migrate
-    rake db:setup
-    rails s
+在基于本项目进行继续开发时，本项目的执行步骤如下：  
+```
+bundle install  
+rake db:migrate  
+rake db:setup  
+rails s  
+```
 
-之后打开另一个终端执行rackup sync.ru -E production
+之后打开另一个终端执行  
+```
+rackup sync.ru -E production
+```
+
+## 测试注意
+  
+rails版本之间的不同会出现不同的情况，如rails4与rails5测试时对params：{id:0}的解析分别为{params=>{id=>0}}和{id=>0}
 
 ## 项目部署
-Demo 地址：
-    [开放版本]http://www.softwarehomeliu.com
-    [生产版本]http://www.softwarehomeliu.com:3000
+Demo 地址：  
+    ![开放版本](http://www.softwarehomeliu.com)  
+    ![生产版本](http://www.softwarehomeliu.com:3000)
 
 ## 部署步骤
-以在服务器上部署生产版本为例，需要clone项目之后在其根目录执行以下指令：
-    bundle install
-    rake db:migrate RAILS_ENV=production
-    rake db:setup RAILS_ENV=production
-    rake assets:precompile RAILS_ENV=production
-    bundle exec rackup sync.ru -E production --host 0.0.0.0 -D
-    rails s RAILS_ENV=production -b 0.0.0.0
+以在服务器上部署生产版本为例，需要clone项目之后在其根目录执行以下指令：  
+```
+bundle install  
+rake db:migrate RAILS_ENV=production  
+rake db:setup RAILS_ENV=production  
+rake assets:precompile RAILS_ENV=production  
+bundle exec rackup sync.ru -E production --host 0.0.0.0 -D  
+rails s RAILS_ENV=production -b 0.0.0.0  
+```
 
-同时，可能需要对config/sync.yml进行修改，修改方法请参照原项目
-最后两条指令可以通过-p参数来指定监听端口
-需要关闭后台rackup时，可以执行ps ax | grep ruby，找到应用后kill -9 <pid>
+同时，可能需要对config/sync.yml进行修改，修改方法请参照原项目  
+最后两条指令可以通过-p参数来指定监听端口  
+需要关闭后台rackup时，可以执行ps ax | grep ruby，找到应用后`kill -9 <pid>`  
 
-同样也可以使用nginx+passenger来部署项目，安装方法可以参[这里]（https://www.phusionpassenger.com/library/install/nginx/install/oss/xenial/）
+同样也可以使用nginx+passenger来部署项目，安装方法可以参![这里](https://www.phusionpassenger.com/library/install/nginx/install/oss/xenial/)
 
 ## 常见问题
-当字体或者样式无法载入时可以尝试以下几种方案：
-    1.检查路径是否有误，生产版本需要预编译。
-    2.检查样式文件中的路径引用，对rails的不同版本而言不能单纯使用url，而需要使用asset_url或font_url等
-    3.检查config/environments/production.rb文件，查看所需文件是否需要加入预编译
-    4.可以将config/environments/production.rb文件中的config.assets.compile设置为true
-    5.查看config/initializers/mine_types.rb，加入对应的解析类型
+1. 当字体或者样式无法载入时可以尝试以下几种方案：  
+  
+    检查路径是否有误，生产版本需要预编译。  
+    检查样式文件中的路径引用，对rails的不同版本而言不能单纯使用url，而需要使用asset_url或font_url等  
+    检查config/environments/production.rb文件，查看所需文件是否需要加入预编译  
+    可以将config/environments/production.rb文件中的config.assets.compile设置为true  
+    查看config/initializers/mine_types.rb，加入对应的解析类型  
 
-当使用生产模式时无法访问，提示secret_key_base：
-    第一步，执行rake secret RAILS_ENV=production（此时会生成一个key，下面会用到）
-    第二步，执行export SECRET_KEY_BASE=<key>
+2. 当使用生产模式时无法访问，提示secret_key_base：  
+  
+    第一步，执行`rake secret RAILS_ENV=production`（此时会生成一个key，下面会用到）  
+    第二步，执行`export SECRET_KEY_BASE=<key>`  
 
-其他问题：
-    可以查看log文件夹下的日志文件查看原因
+3. 其他问题：  
+  
+    可以查看log文件夹下的日志文件查看原因  
