@@ -1,49 +1,24 @@
 require 'test_helper'
+include SessionsHelper
 
 class MessagesControllerTest < ActionController::TestCase
-  # setup do
-  #   @message = messages(:one)
-  # end
-  #
-  # test "should get index" do
-  #   get :index
-  #   assert_response :success
-  #   assert_not_nil assigns(:messages)
-  # end
-  #
-  # test "should get new" do
-  #   get :new
-  #   assert_response :success
-  # end
-  #
+  setup do
+    @message = messages(:one)
+  end
+
   # test "should create message" do
   #   assert_difference('Message.count') do
-  #     post :create, message: { body: @message.body, user_id: @message.user_id }
+  #     post :create, message: { body: "hello", id: 1, chat_room: 1 }
   #   end
   #
-  #   assert_redirected_to message_path(assigns(:message))
+  #   assert_redirected_to root_path
   # end
-  #
-  # test "should show message" do
-  #   get :show, id: @message
-  #   assert_response :success
-  # end
-  #
-  # test "should get edit" do
-  #   get :edit, id: @message
-  #   assert_response :success
-  # end
-  #
-  # test "should update message" do
-  #   patch :update, id: @message, message: { body: @message.body, user_id: @message.user_id }
-  #   assert_redirected_to message_path(assigns(:message))
-  # end
-  #
+
   # test "should destroy message" do
-  #   assert_difference('Message.count', -1) do
-  #     delete :destroy, id: @message
+  #   assert_difference('Message.count', 0) do
+  #     delete :destroy, params:{ id: 1, chat_room: }
   #   end
   #
-  #   assert_redirected_to messages_path
+  #   assert_redirected_to root_path
   # end
 end
