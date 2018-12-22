@@ -24,8 +24,8 @@
 * UI界面修改
 
 ## Usage
-* 测试账号密码分别为: user1@test.com, password （邮箱后的数字代表不同用户）
-* 在域名后加"/admin"可以进入后台管理界面，后台管理员账号密码为admin@test.com, password
+* 测试账号密码分别为: `user1@test.com`, `password` （邮箱后的数字代表不同用户）
+* 在域名后加"/admin"可以进入后台管理界面，后台管理员账号密码为`admin@test.com`, `password`
 * 使用聊天机器人需要搜索Dr.Chat并加为好友
 * 请用两个浏览器分别登陆不同的用户来测试消息的即使推送，注意这两个用户需要互为好友
 
@@ -45,12 +45,12 @@ rackup sync.ru -E production
 
 ## 测试注意
   
-rails版本之间的不同会出现不同的情况，如rails4与rails5测试时对params：{id:0}的解析分别为{params=>{id=>0}}和{id=>0}
+rails版本之间的不同会出现不同的情况，如rails4与rails5测试时对params:{id:0}的解析分别为{params=>{id=>0}}和{id=>0}
 
 ## 项目部署
 Demo 地址：  
-    ![开放版本](http://www.softwarehomeliu.com)  
-    ![生产版本](http://www.softwarehomeliu.com:3000)
+    [开放版本](http://www.softwarehomeliu.com)  
+    [生产版本](http://www.softwarehomeliu.com:3000)
 
 ## 部署步骤
 以在服务器上部署生产版本为例，需要clone项目之后在其根目录执行以下指令：  
@@ -67,7 +67,7 @@ rails s RAILS_ENV=production -b 0.0.0.0
 最后两条指令可以通过-p参数来指定监听端口  
 需要关闭后台rackup时，可以执行ps ax | grep ruby，找到应用后`kill -9 <pid>`  
 
-同样也可以使用nginx+passenger来部署项目，安装方法可以参![这里](https://www.phusionpassenger.com/library/install/nginx/install/oss/xenial/)
+同样也可以使用nginx+passenger来部署项目，安装方法可以参[这里](https://www.phusionpassenger.com/library/install/nginx/install/oss/xenial/)
 
 ## 常见问题
 1. 当字体或者样式无法载入时可以尝试以下几种方案：  
