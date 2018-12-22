@@ -43,9 +43,12 @@ rails s
 rackup sync.ru -E production
 ```
 
-## 测试注意
+## 测试及其注意
   
-rails版本之间的不同会出现不同的情况，如rails4与rails5测试时对params:{id:0}的解析分别为{params=>{id=>0}}和{id=>0}
++ 测试进行了单元测试、集成测试、控制器测试、模型测试
++ rails版本之间的不同会出现不同的情况，如rails4与rails5测试时对params:{id:0}的解析分别为{params=>{id=>0}}和{id=>0}
++ 使用rubymine进行开发的时候，测试出了运行一个test文件，还可以选中一个测试单元进行测试
++ 可以使用ScreenshotHelper提供的方法对测试结果截图，若测试失败了，可以调用进行查看失败信息
 
 ## 项目部署
 Demo 地址：  
