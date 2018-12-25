@@ -92,3 +92,4 @@ rails s RAILS_ENV=production -b 0.0.0.0
 ## 项目demo
 各个功能的demo参考[这里](https://github.com/DrChatTeam/DrChatRails/tree/dev/readmegif)，包括发起聊天、与机器人聊天、用户申请同意、注册、添加用户、修改信息、管理员、置顶与屏蔽聊天。
   ![img](https://github.com/DrChatTeam/DrChatRails/blob/dev/readmegif/与机器人聊天.gif)
+  <iframe height=500 width=500 src="https://github.com/DrChatTeam/DrChatRails/blob/dev/readmegif/与机器人聊天.gif">
