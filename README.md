@@ -90,6 +90,20 @@ rails s RAILS_ENV=production -b 0.0.0.0
   
     可以查看log文件夹下的日志文件查看原因  
 ## 项目demo
-各个功能的demo参考[这里](https://github.com/DrChatTeam/DrChatRails/tree/dev/readmegif)，包括发起聊天、与机器人聊天、用户申请同意、注册、添加用户、修改信息、管理员、置顶与屏蔽聊天。
-  ![img](https://github.com/DrChatTeam/DrChatRails/blob/dev/readmegif/与机器人聊天.gif)
-  <iframe height=500 width=500 src="https://github.com/DrChatTeam/DrChatRails/blob/dev/readmegif/与机器人聊天.gif">
++ 发起聊天
+![img](https://github.com/DrChatTeam/DrChatRails/blob/dev/readmegif/发起聊天.gif)
++ 与机器人聊天
+![img](https://github.com/DrChatTeam/DrChatRails/blob/dev/readmegif/与机器人聊天.gif)
++ 用户申请同意
+![img](https://github.com/DrChatTeam/DrChatRails/blob/dev/readmegif/用户申请同意.gif)
++ 注册
+![img](https://github.com/DrChatTeam/DrChatRails/blob/dev/readmegif/注册.gif)
++ 添加用户
+![img](https://github.com/DrChatTeam/DrChatRails/blob/dev/readmegif/添加用户.gif)
++ 修改信息
+![img](https://github.com/DrChatTeam/DrChatRails/blob/dev/readmegif/修改信息.gif)
++ 管理员
+![img](https://github.com/DrChatTeam/DrChatRails/blob/dev/readmegif/管理员.gif)
++ 置顶与屏蔽聊天
+![img](https://github.com/DrChatTeam/DrChatRails/blob/dev/readmegif/置顶与屏蔽聊天.gif)
+  
