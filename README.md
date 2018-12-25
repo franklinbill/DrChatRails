@@ -90,4 +90,4 @@ rails s RAILS_ENV=production -b 0.0.0.0
   
     可以查看log文件夹下的日志文件查看原因  
 ## 项目demo
-各个功能的demo参考[这里](https://github.com/DrChatTeam/DrChatRails/tree/dev/readmegif)，包括包括发起聊天、与机器人聊天、用户申请同意、注册、添加用户、修改信息、管理员、置顶与屏蔽聊天。
+各个功能的demo参考[这里](https://github.com/DrChatTeam/DrChatRails/tree/dev/readmegif)，包括发起聊天、与机器人聊天、用户申请同意、注册、添加用户、修改信息、管理员、置顶与屏蔽聊天。
