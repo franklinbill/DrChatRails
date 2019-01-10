@@ -52,8 +52,13 @@ rackup sync.ru -E production
 
 ## 项目部署
 Demo 地址：  
-    [开放版本](http://www.softwarehomeliu.com)  
+    [开发版本](http://www.softwarehomeliu.com)  
     [生产版本](http://www.softwarehomeliu.com:3000)
+
+## 部署环境 
+阿里云与服务器ECS  
+配置1核/1GB内存/40G云盘  
+ruby版本2.3.7  
 
 ## 部署步骤
 以在服务器上部署生产版本为例，需要clone项目之后在其根目录执行以下指令：  
