@@ -111,4 +111,8 @@ rails s RAILS_ENV=production -b 0.0.0.0
 ![img](https://github.com/DrChatTeam/DrChatRails/blob/dev/readmegif/管理员.gif)
 + 置顶与屏蔽聊天
 ![img](https://github.com/DrChatTeam/DrChatRails/blob/dev/readmegif/置顶与屏蔽聊天.gif)
-  
+
+## 系统测试
+系统测试结果如下：
+测试覆盖率：82.19%
+![img](https://github.com/DrChatTeam/DrChatRails/blob/dev/readmegif/测试覆盖率.jpg)
